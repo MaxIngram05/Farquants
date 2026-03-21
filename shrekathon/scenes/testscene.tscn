@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cpkqyj26o8l5p" path="res://placeholders/Assets/fonts/PixelOperator8.ttf" id="6_i7xxu"]
 [ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="7_p7smk"]
 [ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/Donkey.tscn" id="8_acxp7"]
+[ext_resource type="PackedScene" uid="uid://uceyd2e4ha4m" path="res://placeholders/Scenes/mosquito.tscn" id="9_3ahxw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("3_acxp7")
@@ -249,3 +250,12 @@ position = Vector2(160, 17)
 [node name="Donkey" parent="." unique_id=1801920957 instance=ExtResource("8_acxp7")]
 position = Vector2(127, 15)
 scale = Vector2(0.5, 0.5)
+
+[node name="Mosquito" parent="." unique_id=330798028 instance=ExtResource("9_3ahxw")]
+position = Vector2(-56, -73)
+
+[node name="Mosquito2" parent="." unique_id=371579033 instance=ExtResource("9_3ahxw")]
+position = Vector2(172, -34)
+
+[node name="Mosquito3" parent="." unique_id=804600664 instance=ExtResource("9_3ahxw")]
+position = Vector2(76, -119)
