@@ -247,9 +247,6 @@ position = Vector2(0, 0)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -8)
 zoom = Vector2(4, 4)
-limit_bottom = 120
-limit_smoothed = true
-position_smoothing_enabled = true
 script = ExtResource("9_jkcam")
 
 [node name="Platforms" type="Node" parent="."]
