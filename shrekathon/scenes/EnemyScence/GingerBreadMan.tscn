@@ -1,13 +1,52 @@
 [gd_scene format=3 uid="uid://d1pry0r2qofmv"]
 
 [ext_resource type="Script" uid="uid://cxsab318eiwuj" path="res://scripts/enemies/ginger_bread_man.gd" id="1_u4fao"]
-[ext_resource type="Texture2D" uid="uid://bisgt0xtq0o1" path="res://placeholders/Assets/sprites/ggbreadman.png" id="2_buw0v"]
+[ext_resource type="Texture2D" uid="uid://dyp4cd630y514" path="res://assets/gingerbreadman.png" id="2_buw0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s81wq"]
+atlas = ExtResource("2_buw0v")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ye8"]
+atlas = ExtResource("2_buw0v")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oss3h"]
+atlas = ExtResource("2_buw0v")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cvkr"]
+atlas = ExtResource("2_buw0v")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xys6"]
+atlas = ExtResource("2_buw0v")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wasw"]
+atlas = ExtResource("2_buw0v")
+region = Rect2(0, 100, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_buw0v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_buw0v")
+"texture": SubResource("AtlasTexture_s81wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ye8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oss3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cvkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xys6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wasw")
 }],
 "loop": true,
 "name": &"default",
@@ -15,19 +54,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s81wq"]
-radius = 13.0
+radius = 17.0
 height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e0ye8"]
-radius = 25.019993
+radius = 28.01785
 
 [node name="GingerBreadMan" type="Node2D" unique_id=1692480029]
 script = ExtResource("1_u4fao")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1575201505]
-position = Vector2(4.0000005, -6.000001)
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_buw0v")
+autoplay = "default"
+frame_progress = 0.14854936
 
 [node name="BodyArea2D" type="Area2D" parent="." unique_id=785636822]
 
