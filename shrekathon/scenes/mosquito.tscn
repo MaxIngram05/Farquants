@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://uceyd2e4ha4m"]
+[gd_scene format=3 uid="uid://b5ahubb2qb2uo"]
 
 [ext_resource type="Script" uid="uid://bxlllqkv2k65h" path="res://scenes/Mosquito.cs" id="1_itjbs"]
 [ext_resource type="Texture2D" uid="uid://cgfpkf0xll0qf" path="res://placeholders/Assets/sprites/mosquito_placeholder.png" id="2_rum1w"]

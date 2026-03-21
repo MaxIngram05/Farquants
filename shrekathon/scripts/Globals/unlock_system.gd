@@ -1,7 +1,7 @@
 extends Node
 
-var obtainedHorizontalDash = false
-var obtainedVerticalDash = false
+var obtainedHorizontalDash = true
+var obtainedVerticalDash = true
 var obtainedJumpExtend = false
 
 var obtainedGroundPound = false
