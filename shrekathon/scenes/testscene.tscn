@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bm3x8y2k74twl" path="res://placeholders/Scenes/killzone.tscn" id="5_tob6u"]
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="6_ckmbu"]
 [ext_resource type="FontFile" uid="uid://cpkqyj26o8l5p" path="res://placeholders/Assets/fonts/PixelOperator8.ttf" id="6_i7xxu"]
+[ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="7_p7smk"]
+[ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/Donkey.tscn" id="8_acxp7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("3_acxp7")
@@ -232,6 +234,7 @@ theme_override_font_sizes/font_size = 8
 text = "You made it!"
 
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("6_ckmbu")]
+z_index = 67
 
 [node name="Camera2D" type="Camera2D" parent="Shrek(player)" unique_id=1449746345]
 position = Vector2(0, -8)
@@ -239,3 +242,10 @@ zoom = Vector2(4, 4)
 limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="BloomingOnion" parent="." unique_id=1953261989 instance=ExtResource("7_p7smk")]
+position = Vector2(160, 17)
+
+[node name="Donkey" parent="." unique_id=1801920957 instance=ExtResource("8_acxp7")]
+position = Vector2(127, 15)
+scale = Vector2(0.5, 0.5)
