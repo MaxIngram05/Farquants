@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://4pvhckn505h4"]
 
 [ext_resource type="Script" uid="uid://b10gicmwe02s1" path="res://scripts/character_body_2d.gd" id="1_gw570"]
-[ext_resource type="Texture2D" path="res://assets/shrek_walk.png" id="2_walk"]
-[ext_resource type="Texture2D" path="res://assets/shrek_idle.png" id="3_idle"]
+[ext_resource type="Texture2D" uid="uid://dywpgi0ob5na8" path="res://assets/shrek_walk.png" id="2_walk"]
+[ext_resource type="Texture2D" uid="uid://cuer3yvogmxkl" path="res://assets/shrek_idle.png" id="3_idle"]
 
 [sub_resource type="AtlasTexture" id="Walk_0"]
 atlas = ExtResource("2_walk")
@@ -55,14 +55,6 @@ region = Rect2(100, 200, 100, 100)
 [sub_resource type="AtlasTexture" id="Walk_12"]
 atlas = ExtResource("2_walk")
 region = Rect2(200, 200, 100, 100)
-
-[sub_resource type="AtlasTexture" id="Walk_13"]
-atlas = ExtResource("2_walk")
-region = Rect2(300, 200, 100, 100)
-
-[sub_resource type="AtlasTexture" id="Walk_14"]
-atlas = ExtResource("2_walk")
-region = Rect2(400, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="Idle_0"]
 atlas = ExtResource("3_idle")
@@ -156,6 +148,50 @@ region = Rect2(100, 400, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("Walk_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_8")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_9")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_10")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("Walk_12")
+}],
+"loop": true,
+"name": &"active",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("Idle_0")
 }, {
 "duration": 1.0,
@@ -224,56 +260,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("Walk_0")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_1")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_2")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_3")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_4")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_5")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_6")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_7")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_8")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_9")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_10")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_11")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_12")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_13")
-}, {
-"duration": 1.0,
-"texture": SubResource("Walk_14")
-}],
-"loop": true,
-"name": &"active",
-"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpp5s"]
@@ -286,7 +272,7 @@ script = ExtResource("1_gw570")
 position = Vector2(0, -13)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_shrek")
-animation = &"idle"
+animation = &"active"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=385947850]

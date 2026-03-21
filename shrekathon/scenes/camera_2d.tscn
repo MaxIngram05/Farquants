@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ck8f4utovcjj2"]
+
+[ext_resource type="Script" uid="uid://py715w7syrx4" path="res://scripts/jump_king_camera.gd" id="1_qnfst"]
+
+[node name="Camera2D" type="Camera2D" unique_id=1938074516]
+zoom = Vector2(4, 4)
+script = ExtResource("1_qnfst")
