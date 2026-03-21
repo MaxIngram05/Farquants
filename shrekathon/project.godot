@@ -15,6 +15,10 @@ run/main_scene="uid://bivscskoakbr4"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerData="*res://scripts/player_data.gd"
+
 [display]
 
 window/size/viewport_width=640
@@ -23,6 +27,11 @@ window/size/viewport_height=480
 [dotnet]
 
 project/assembly_name="shrekathon"
+
+[layer_names]
+
+2d_render/layer_1="Main"
+2d_render/layer_2="Interaction"
 
 [physics]
 
