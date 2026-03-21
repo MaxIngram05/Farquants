@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ce6k3sph4yla5" path="res://placeholders/Assets/sprites/shrek_jump.webp" id="7_3yq4j"]
 [ext_resource type="Texture2D" uid="uid://diuy8hsalrp0g" path="res://placeholders/Assets/sprites/shrek_walking_right.png" id="9_yrwly"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rki13"]
+atlas = ExtResource("7_3yq4j")
+region = Rect2(100, 0, 100, 100)
+
 [sub_resource type="AtlasTexture" id="Idle_0"]
 atlas = ExtResource("3_idle")
 region = Rect2(0, 0, 100, 100)
@@ -225,6 +229,14 @@ region = Rect2(200, 200, 100, 100)
 [sub_resource type="SpriteFrames" id="SpriteFrames_shrek"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rki13")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.9,
 "texture": SubResource("Idle_0")
 }, {
@@ -422,7 +434,7 @@ script = ExtResource("1_gw570")
 position = Vector2(1.1920929e-07, -12)
 scale = Vector2(0.23000002, 0.23)
 sprite_frames = SubResource("SpriteFrames_shrek")
-animation = &"walking_right"
+animation = &"charging"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=385947850]

@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	# Animation logic
 	if is_charging:
 		# Use "idle" if you haven't made a "charging" animation yet
-		anim.play("landing") 
+		anim.play("charging") 
 	elif not is_on_floor():
 		# Use "idle" or a specific "jump" frame if you have one
 		anim.play("jumping")
