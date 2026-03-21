@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const MAX_CHARGE_TIME = 1.5
+const SPEED = 150.0
+const JUMP_VELOCITY = -200.0
+const MAX_CHARGE_TIME = 1.0
 const CHARGE_JUMP_MULTIPLIER = 2.5
 
 var charge_time := 0.0
@@ -15,10 +15,13 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	var left = Input.is_key_pressed(KEY_A)
-	var right = Input.is_key_pressed(KEY_D)
-	var dir = float(right) - float(left)
+	
+	var dir = 0;
+	
+	if is_on_floor():
+		var left = Input.is_key_pressed(KEY_A)
+		var right = Input.is_key_pressed(KEY_D)
+		dir = float(right) - float(left)
 
 	# Charging logic (hold Space)
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
@@ -28,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		charge_direction = dir
 		# Lock horizontal movement while charging
 		velocity.x = 0.0
-	elif Input.is_action_just_released("ui_accept") and is_charging:
+	elif (Input.is_action_just_released("ui_accept") and is_charging):
 		# Release: launch with charged jump
 		var charge_ratio = charge_time / MAX_CHARGE_TIME
 		velocity.y = JUMP_VELOCITY * (1.0 + charge_ratio * (CHARGE_JUMP_MULTIPLIER - 1.0))
@@ -36,11 +39,11 @@ func _physics_process(delta: float) -> void:
 		is_charging = false
 		charge_time = 0.0
 		charge_direction = 0.0
-	else:
+	elif is_on_floor():
 		# Normal horizontal movement
 		if dir:
 			velocity.x = dir * SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+			velocity.x = move_toward(velocity.x, charge_direction, SPEED)
+	
 	move_and_slide()
