@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://4pvhckn505h4"]
+
+[ext_resource type="Script" uid="uid://b10gicmwe02s1" path="res://Scripts/character_body_2d.gd" id="1_gw570"]
+
+[node name="Shrek(player)" type="CharacterBody2D" unique_id=199883520]
+script = ExtResource("1_gw570")
