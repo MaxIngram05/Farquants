@@ -12,7 +12,7 @@ config_version=5
 
 config/name="shrekathon"
 run/main_scene="uid://bivscskoakbr4"
-config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
