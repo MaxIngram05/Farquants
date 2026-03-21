@@ -235,7 +235,7 @@ text = "You made it!"
 
 [node name="Camera2D" type="Camera2D" parent="Shrek(player)" unique_id=1449746345]
 position = Vector2(0, -8)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
