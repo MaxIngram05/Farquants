@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d1pry0r2qofmv"]
+
+[ext_resource type="Script" uid="uid://cxsab318eiwuj" path="res://scripts/enemies/ginger_bread_man.gd" id="1_u4fao"]
+[ext_resource type="Texture2D" uid="uid://bisgt0xtq0o1" path="res://placeholders/Assets/sprites/ggbreadman.png" id="2_buw0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_buw0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_buw0v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s81wq"]
+radius = 13.0
+height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0ye8"]
+radius = 25.019993
+
+[node name="GingerBreadMan" type="Node2D" unique_id=1692480029]
+script = ExtResource("1_u4fao")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1575201505]
+position = Vector2(4.0000005, -6.000001)
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_buw0v")
+
+[node name="BodyArea2D" type="Area2D" parent="." unique_id=785636822]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea2D" unique_id=584678565]
+shape = SubResource("CapsuleShape2D_s81wq")
+
+[node name="DamageArea2D" type="Area2D" parent="." unique_id=1460350333]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D" unique_id=1581804984]
+shape = SubResource("CircleShape2D_e0ye8")
+
+[connection signal="body_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_body_entered"]
+[connection signal="body_exited" from="DamageArea2D" to="." method="_on_damage_area_2d_body_exited"]
