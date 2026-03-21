@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var anim = $AnimatedSprite2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
@@ -71,11 +71,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	# Animation and sprite flip
-	if not is_on_floor() or is_charging or abs(velocity.x) > 0.1:
-		sprite.play("active")
+		# Animation logic - put this BEFORE move_and_slide()
+	# Animation logic
+	if is_charging:
+		# Use "idle" if you haven't made a "charging" animation yet
+		anim.play("landing") 
+	elif not is_on_floor():
+		# Use "idle" or a specific "jump" frame if you have one
+		anim.play("jumping")
+	elif dir > 0:
+		anim.play("walking_right")
+	elif dir < 0:
+		anim.play("walking_left")
 	else:
-		sprite.play("idle")
-	if velocity.x < -0.1:
-		sprite.flip_h = true
-	elif velocity.x > 0.1:
-		sprite.flip_h = false
+		anim.play("idle")

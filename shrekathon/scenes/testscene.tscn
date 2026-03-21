@@ -177,6 +177,8 @@ sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_tob6u"]
+
 [node name="Game" type="Node2D" unique_id=1529407734]
 
 [node name="GameManager" type="Node" parent="." unique_id=445380449]
@@ -242,6 +244,9 @@ z_index = 67
 position = Vector2(0, -8)
 zoom = Vector2(4, 4)
 script = ExtResource("9_jkcam")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Shrek(player)" unique_id=1219889155]
+sprite_frames = SubResource("SpriteFrames_tob6u")
 
 [node name="BloomingOnion" parent="." unique_id=1953261989 instance=ExtResource("7_p7smk")]
 position = Vector2(248, -32)
