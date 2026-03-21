@@ -4,6 +4,44 @@
 [ext_resource type="Texture2D" uid="uid://b1xr7866tijio" path="res://icon.svg" id="2_2wh52"]
 [ext_resource type="PackedScene" uid="uid://c1o6uutpi74lc" path="res://scenes/credits_image.tscn" id="3_2wh52"]
 
+[sub_resource type="Animation" id="Animation_2wh52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_ow34m"]
+resource_name = "max_animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 2), Vector2(1.2, 2.4), Vector2(1, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l72w3"]
+_data = {
+&"RESET": SubResource("Animation_2wh52"),
+&"max_animation": SubResource("Animation_ow34m")
+}
+
 [node name="MainMenu" type="Control" unique_id=1836985584]
 layout_mode = 3
 anchors_preset = 15
@@ -38,16 +76,9 @@ position = Vector2(133, 356.76)
 scale = Vector2(1, 2)
 texture = ExtResource("2_2wh52")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=37212313]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -411.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "[shake rate=50.0 level=5 connected=1] [center] SHREK AND THE  [/center] [/shake]"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MaxPlaceholder" unique_id=769848229]
+libraries/ = SubResource("AnimationLibrary_l72w3")
+autoplay = &"max_animation"
 
 [node name="CreditsImage" parent="." unique_id=545912086 instance=ExtResource("3_2wh52")]
 position = Vector2(491, 367)
