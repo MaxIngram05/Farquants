@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://cbggl6820xwc3"]
 
+[ext_resource type="Script" uid="uid://cqta7tttpolrs" path="res://scripts/NPCs/PussInBoots.gd" id="1_cx4gm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cx4gm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ha8nt"]
+
 [node name="PussInBoots" type="Node2D" unique_id=428383905]
+script = ExtResource("1_cx4gm")
+dialogue = Array[String](["meow", "meow"])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1782409549]
+sprite_frames = SubResource("SpriteFrames_cx4gm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1585199691]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1415850001]
+shape = SubResource("CapsuleShape2D_ha8nt")

@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://b3mrdlsbcleu8"]
 
+[ext_resource type="Script" uid="uid://1elsmw1ler10" path="res://scripts/NPCs/Donkey.gd" id="1_jvmdb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvmdb"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvmdb"]
+
 [node name="Donkey" type="Node2D" unique_id=1801920957]
+script = ExtResource("1_jvmdb")
+npc_name = "Donkey"
+is_interacting = true
+dialogue = Array[String](["Mhmmmm", "Mhmmm", "donkey", "not kong"])
+npc_karma_reward = 20
+
+[node name="Area2D" type="Area2D" parent="." unique_id=618315880]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=610664929]
+shape = SubResource("CapsuleShape2D_jvmdb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1794370586]
+sprite_frames = SubResource("SpriteFrames_jvmdb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

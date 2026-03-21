@@ -2,14 +2,14 @@ extends CharacterBody2D
 class_name BaseNPC
 
 # NPC properties
-var npc_name: String = "NPC"
-var is_interacting: bool = false
-var dialogue: Array[String] = []
-var has_been_interacted: bool = false
+@export var npc_name: String = "NPC"
+@export var is_interacting: bool = false
+@export var dialogue: Array[String] = []
+@export var has_been_interacted: bool = false
 
-var npc_karma_reward: int = 0
-var choice_1_text: String = "Choice 1"
-var choice_2_text: String = "Choice 2"
+@export var npc_karma_reward: int = 0
+@export var choice_1_text: String = "Choice 1"
+@export var choice_2_text: String = "Choice 2"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,8 +27,8 @@ func interact() -> void:
 		return
 	
 	is_interacting = true
+	# should we lock the player here till interaction is done
 	on_interact()
-	is_interacting = false
 
 
 # Override this in child classes for custom behavior
@@ -64,7 +64,8 @@ func make_choice(choice: int) -> void:
 	else:
 		print("Invalid choice")
 		return
-	
+
+	is_interacting = false
 	has_been_interacted = true
 
 
@@ -72,15 +73,6 @@ func make_choice(choice: int) -> void:
 func apply_karma_reward(karma_amount: int) -> void:
 	PlayerData.karma += karma_amount
 	print("Karma changed by %+d (Total: %d)" % [karma_amount, PlayerData.karma])
-
-# Get NPC info
-func get_npc_info() -> Dictionary:
-	return {
-		"name": npc_name,
-		"score": npc_karma_reward,
-		"dialogue": dialogue
-	}
-
 
 # Event callbacks - override these in child classes for custom behavior
 func on_choice_1_selected() -> void:
