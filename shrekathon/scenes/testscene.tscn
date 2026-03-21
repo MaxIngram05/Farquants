@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bivscskoakbr4"]
+[gd_scene format=3 uid="uid://comuym1853adn"]
 
 [ext_resource type="Script" uid="uid://bd07x6ov53h5p" path="res://placeholders/Scripts/game_manager.gd" id="1_ckmbu"]
 [ext_resource type="FontFile" uid="uid://weu57423e7la" path="res://placeholders/Assets/fonts/PixelOperator8-Bold.ttf" id="2_p7smk"]
@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="6_ckmbu"]
 [ext_resource type="FontFile" uid="uid://cpkqyj26o8l5p" path="res://placeholders/Assets/fonts/PixelOperator8.ttf" id="6_i7xxu"]
 [ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="7_p7smk"]
-[ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/Donkey.tscn" id="8_acxp7"]
+[ext_resource type="PackedScene" path="res://scenes/Donkey.tscn" id="8_acxp7"]
 [ext_resource type="Script" path="res://scripts/jump_king_camera.gd" id="9_jkcam"]
-[ext_resource type="PackedScene" uid="uid://deyg7cr3srxpy" path="res://scenes/Environment/SlowArea.tscn" id="9_3ahxw"]
-[ext_resource type="PackedScene" uid="uid://cbggl6820xwc3" path="res://scenes/PussInBoots.tscn" id="10_tob6u"]
+[ext_resource type="PackedScene" path="res://scenes/PussInBoots.tscn" id="10_tob6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("3_acxp7")
@@ -239,20 +238,17 @@ text = "You made it!"
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("6_ckmbu")]
 z_index = 67
 
+[node name="Camera2D" type="Camera2D" parent="Shrek(player)" unique_id=1449746345]
+position = Vector2(0, -8)
+zoom = Vector2(4, 4)
+script = ExtResource("9_jkcam")
+
 [node name="BloomingOnion" parent="." unique_id=1953261989 instance=ExtResource("7_p7smk")]
 position = Vector2(160, 17)
 
 [node name="Donkey" parent="." unique_id=1801920957 instance=ExtResource("8_acxp7")]
 position = Vector2(127, 15)
 scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D" type="Camera2D" parent="Shrek(player)" unique_id=1449746345]
-position = Vector2(0, -8)
-zoom = Vector2(4, 4)
-script = ExtResource("9_jkcam")
-
-[node name="SlowArea" parent="." unique_id=2089536720 instance=ExtResource("9_3ahxw")]
-position = Vector2(93, 6)
 
 [node name="PussInBoots" parent="." unique_id=428383905 instance=ExtResource("10_tob6u")]
 position = Vector2(177, 8)
