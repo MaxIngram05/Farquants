@@ -20,6 +20,7 @@ var is_jumping := false;
 
 @onready var right_wall: RayCast2D = $RightWall
 @onready var left_wall: RayCast2D = $LeftWall
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -68,3 +69,13 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, charge_direction, SPEED)
 	
 	move_and_slide()
+
+	# Animation and sprite flip
+	if not is_on_floor() or is_charging or abs(velocity.x) > 0.1:
+		sprite.play("active")
+	else:
+		sprite.play("idle")
+	if velocity.x < -0.1:
+		sprite.flip_h = true
+	elif velocity.x > 0.1:
+		sprite.flip_h = false
