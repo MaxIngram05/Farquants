@@ -11,6 +11,7 @@ public partial class Mosquito : CharacterBody2D
 	Vector2 moveDirection = new Vector2(1, 1); // Moves Down-Right
 	public bool activated = false;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
+	public bool shaking = true;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -27,6 +28,8 @@ public partial class Mosquito : CharacterBody2D
 	public override void _PhysicsProcess(double delta){
 		if(activated){
 			Move();
+		}else{
+			Shake();
 		}
 	}
 
@@ -47,7 +50,7 @@ public partial class Mosquito : CharacterBody2D
 		{
 			GD.Print("Success! Mosquito hit Shrek.");
 			// Push shrek
-			shrek.Velocity += new Vector2(moveDirection.X*10,-20) * 40;
+			shrek.Velocity += new Vector2(rng.RandfRange(-20f, 20f),-2d0) * 40;
 			Kill();
 		}
 		
@@ -63,6 +66,13 @@ public partial class Mosquito : CharacterBody2D
 			shrekDirection = (shrek.GlobalPosition - GlobalPosition).Normalized();
 			activated = true;
 		}
+	}
+	
+	public async void Shake(){
+		Vector2 ogPosition = this.Position;
+		this.Position = this.Position+new Vector2(rng.RandfRange(0.1f, 0.2f), rng.RandfRange(0.1f, 0.2f));
+		await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
+		this.Position = ogPosition;
 	}
 	
 	/* Antequated logic
