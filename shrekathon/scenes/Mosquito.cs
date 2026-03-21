@@ -47,7 +47,7 @@ public partial class Mosquito : CharacterBody2D
 		{
 			GD.Print("Success! Mosquito hit Shrek.");
 			// Push shrek
-			shrek.GlobalPosition += new Vector2(moveDirection.X,0) * 40;
+			shrek.Velocity += new Vector2(moveDirection.X*10,-20) * 40;
 			Kill();
 		}
 		
@@ -59,11 +59,11 @@ public partial class Mosquito : CharacterBody2D
 	}
 	
 	public void Activate(Node body) { 
-	if(!activated && shrek != null) {
-		shrekDirection = (shrek.GlobalPosition - GlobalPosition).Normalized();
-		activated = true;
+		if(!activated && shrek != null && body == shrek) {
+			shrekDirection = (shrek.GlobalPosition - GlobalPosition).Normalized();
+			activated = true;
+		}
 	}
-}
 	
 	/* Antequated logic
 	
