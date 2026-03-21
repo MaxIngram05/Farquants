@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dkjf84oq0a23l"]
+
+[ext_resource type="Script" uid="uid://eq5wwgdnpc1b" path="res://scripts/sign.gd" id="1_kd50q"]
+[ext_resource type="Texture2D" uid="uid://b1xr7866tijio" path="res://icon.svg" id="1_shbub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd50q"]
+size = Vector2(113, 65)
+
+[node name="Sign" type="Node2D" unique_id=324148424]
+script = ExtResource("1_kd50q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213802429]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_shbub")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1349258894]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -40.0
+offset_right = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to Talk To Me"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1622653711]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=666727167]
+position = Vector2(0.5, -15.5)
+shape = SubResource("RectangleShape2D_kd50q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
