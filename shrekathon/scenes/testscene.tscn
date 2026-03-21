@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="6_ckmbu"]
 [ext_resource type="FontFile" uid="uid://cpkqyj26o8l5p" path="res://placeholders/Assets/fonts/PixelOperator8.ttf" id="6_i7xxu"]
 [ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="7_p7smk"]
-[ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/Donkey.tscn" id="8_acxp7"]
-[ext_resource type="Script" uid="uid://py715w7syrx4" path="res://scripts/jump_king_camera.gd" id="9_jkcam"]
-[ext_resource type="PackedScene" uid="uid://cbggl6820xwc3" path="res://scenes/PussInBoots.tscn" id="10_tob6u"]
+[ext_resource type="PackedScene" path="res://scenes/Donkey.tscn" id="8_acxp7"]
+[ext_resource type="Script" path="res://scripts/jump_king_camera.gd" id="9_jkcam"]
+[ext_resource type="PackedScene" path="res://scenes/PussInBoots.tscn" id="10_tob6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("3_acxp7")
