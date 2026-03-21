@@ -1,8 +1,6 @@
-[gd_scene format=3 uid="uid://c6ny5x64ld5lm"]
+[gd_scene format=3 uid="uid://djvvyo5fvmcd3"]
 
-[ext_resource type="Script" uid="uid://80ctllnubbm1" path="res://scripts/dialogue_panel.gd" id="1_5n300"]
-[ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="1_u2elu"]
-[ext_resource type="Texture2D" uid="uid://b1xr7866tijio" path="res://icon.svg" id="3_p254t"]
+[ext_resource type="Script" uid="uid://csbfb5j85phhu" path="res://scenes/decision_panel.gd" id="1_1uvk7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2wlh"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,8 +13,8 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="dialogue_panel" type="Node2D" unique_id=1408534115]
-script = ExtResource("1_5n300")
+[node name="decision_panel" type="Node2D" unique_id=1408534115]
+script = ExtResource("1_1uvk7")
 
 [node name="Panel" type="Panel" parent="." unique_id=1869648267]
 anchors_preset = 8
@@ -45,6 +43,18 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ChoiceOneButton" type="Button" parent="HBoxContainer" unique_id=791153100]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath("../ChoiceTwoButton")
+text = "Choice 1"
+
+[node name="ChoiceTwoButton" type="Button" parent="HBoxContainer" unique_id=355217033]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ChoiceOneButton")
+focus_neighbor_right = NodePath(".")
+text = "Choice 2"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=227421355]
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,15 +68,6 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1184840773]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 57.77)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_u2elu")
-bbcode_enabled = true
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-visible_characters_behavior = 1
-
 [node name="button_container" type="HBoxContainer" parent="VBoxContainer" unique_id=995910142]
 layout_mode = 2
 
@@ -75,10 +76,5 @@ unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=408663257]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1618373706]
-offset_left = -143.0
-offset_top = -27.0
-offset_right = -89.0
-offset_bottom = 27.0
-texture = ExtResource("3_p254t")
-expand_mode = 1
+[connection signal="pressed" from="HBoxContainer/ChoiceOneButton" to="." method="_on_choice_one_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ChoiceTwoButton" to="." method="_on_choice_two_button_pressed"]
