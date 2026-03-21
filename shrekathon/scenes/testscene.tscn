@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/Donkey.tscn" id="8_acxp7"]
 [ext_resource type="Script" uid="uid://py715w7syrx4" path="res://scripts/jump_king_camera.gd" id="9_jkcam"]
 [ext_resource type="PackedScene" uid="uid://cbggl6820xwc3" path="res://scenes/PussInBoots.tscn" id="10_tob6u"]
+[ext_resource type="PackedScene" uid="uid://b5ahubb2qb2uo" path="res://placeholders/Scenes/mosquito.tscn" id="11_i7xxu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("3_acxp7")
@@ -177,8 +178,6 @@ sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tob6u"]
-
 [node name="Game" type="Node2D" unique_id=1529407734]
 
 [node name="GameManager" type="Node" parent="." unique_id=445380449]
@@ -245,9 +244,6 @@ position = Vector2(0, -8)
 zoom = Vector2(4, 4)
 script = ExtResource("9_jkcam")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Shrek(player)" unique_id=1219889155]
-sprite_frames = SubResource("SpriteFrames_tob6u")
-
 [node name="BloomingOnion" parent="." unique_id=1953261989 instance=ExtResource("7_p7smk")]
 position = Vector2(248, -32)
 
@@ -257,3 +253,9 @@ scale = Vector2(0.5, 0.5)
 
 [node name="PussInBoots" parent="." unique_id=428383905 instance=ExtResource("10_tob6u")]
 position = Vector2(177, 8)
+
+[node name="Mosquito" parent="." unique_id=330798028 instance=ExtResource("11_i7xxu")]
+position = Vector2(282, -143)
+
+[node name="Mosquito2" parent="." unique_id=474516970 instance=ExtResource("11_i7xxu")]
+position = Vector2(171, -69)
