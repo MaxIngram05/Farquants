@@ -186,3 +186,15 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=63599635]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_3smsa")
+
+[node name="LeftWall" type="RayCast2D" parent="." unique_id=1359275845]
+position = Vector2(0, -6)
+rotation = -1.5707964
+target_position = Vector2(4.7683716e-07, -10)
+collide_with_areas = true
+
+[node name="RightWall" type="RayCast2D" parent="." unique_id=96089554]
+position = Vector2(0, -6)
+rotation = -1.5707964
+target_position = Vector2(-4.7683716e-07, 10)
+collide_with_areas = true

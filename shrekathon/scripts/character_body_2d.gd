@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -200.0
+const WALL_JUMP_VELOCITY_Y = 20.0
+const WALL_JUMP_VELOCITY_X = 20.0
 const MAX_CHARGE_TIME = 1.0
 const CHARGE_JUMP_MULTIPLIER = 2.5
 
@@ -10,6 +12,16 @@ var charge_time := 0.0
 var is_charging := false
 var charge_direction := 0.0
 
+var is_jumping := false;
+
+@onready var right_wall: RayCast2D = $RightWall
+@onready var left_wall: RayCast2D = $LeftWall
+
+func _ready() -> void:
+	right_wall = get_node("RightWall")
+	left_wall = get_node("LeftWall")
+	print(right_wall)
+	print(left_wall)
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -22,6 +34,14 @@ func _physics_process(delta: float) -> void:
 		var left = Input.is_key_pressed(KEY_A)
 		var right = Input.is_key_pressed(KEY_D)
 		dir = float(right) - float(left)
+		
+	if !is_on_floor() and is_jumping:
+		if right_wall.is_colliding():
+			velocity.x -= WALL_JUMP_VELOCITY_X
+			velocity.y -= WALL_JUMP_VELOCITY_Y
+		if left_wall.is_colliding():
+			velocity.x += WALL_JUMP_VELOCITY_X
+			velocity.y -= WALL_JUMP_VELOCITY_Y
 
 	# Charging logic (hold Space)
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
@@ -37,10 +57,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY * (1.0 + charge_ratio * (CHARGE_JUMP_MULTIPLIER - 1.0))
 		velocity.x = charge_direction * SPEED * (1.0 + charge_ratio)
 		is_charging = false
+		is_jumping = true
 		charge_time = 0.0
 		charge_direction = 0.0
 	elif is_on_floor():
 		# Normal horizontal movement
+		is_jumping = false
 		if dir:
 			velocity.x = dir * SPEED
 		else:
