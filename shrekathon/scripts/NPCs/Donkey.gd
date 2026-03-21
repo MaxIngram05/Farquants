@@ -12,10 +12,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Shrek(player)":
 		print("Donkey says: 'Press E to talk!'")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Shrek(player)":
 		print("Donkey says: 'I miss my wife'")
