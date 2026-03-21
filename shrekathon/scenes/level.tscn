@@ -214,4 +214,4 @@ position = Vector2(248, -32)
 position = Vector2(-57, 87)
 
 [node name="Sign" parent="." unique_id=324148424 instance=ExtResource("8_b121j")]
-position = Vector2(-169, 194)
+position = Vector2(-245, 249)

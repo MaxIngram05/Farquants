@@ -34,7 +34,16 @@ var dash_timer: float = 0.0
 @onready var left_wall: RayCast2D = $LeftWall
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
+	#people interaction
+	
+	
+	
+	
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -138,3 +147,7 @@ func veritcal_dash(delta: float) -> void:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			is_dashing = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
