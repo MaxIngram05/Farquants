@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djvvyo5fvmcd3"]
 
 [ext_resource type="Script" uid="uid://csbfb5j85phhu" path="res://scenes/decision_panel.gd" id="1_1uvk7"]
+[ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="2_m5see"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2wlh"]
 bg_color = Color(0, 0, 0, 1)
@@ -12,6 +13,16 @@ expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uvk7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r66a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5see"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqc26"]
 
 [node name="decision_panel" type="Node2D" unique_id=1408534115]
 script = ExtResource("1_1uvk7")
@@ -45,17 +56,26 @@ grow_vertical = 2
 
 [node name="ChoiceOneButton" type="Button" parent="HBoxContainer" unique_id=791153100]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath("../ChoiceTwoButton")
+theme_override_fonts/font = ExtResource("2_m5see")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uvk7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0r66a")
 text = "Choice 1"
 
 [node name="ChoiceTwoButton" type="Button" parent="HBoxContainer" unique_id=355217033]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../ChoiceOneButton")
 focus_neighbor_right = NodePath(".")
+theme_override_fonts/font = ExtResource("2_m5see")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m5see")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yqc26")
 text = "Choice 2"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=227421355]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -69,6 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="button_container" type="HBoxContainer" parent="VBoxContainer" unique_id=995910142]
+visible = false
 layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1922516167]
