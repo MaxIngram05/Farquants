@@ -50,7 +50,7 @@ public partial class Mosquito : CharacterBody2D
 		{
 			GD.Print("Success! Mosquito hit Shrek.");
 			// Push shrek
-			shrek.Velocity += new Vector2(rng.RandfRange(-20f, 20f),-2d0) * 40;
+			shrek.Velocity += new Vector2(rng.RandfRange(-20f, 20f),-20) * 40;
 			Kill();
 		}
 		
