@@ -15,6 +15,9 @@ var jump_direction := 0.0
 
 var is_jumping := false;
 
+@export var speed_scale: float = 1.0  # Multiplier for movement (1.0 = normal, 0.2 = 20% speed)
+@export var dir = 0;
+
 @onready var right_wall: RayCast2D = $RightWall
 @onready var left_wall: RayCast2D = $LeftWall
 
@@ -23,12 +26,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	var dir = 0;
+	dir = 0;
 	
 	if is_on_floor():
 		var left = Input.is_key_pressed(KEY_A)
 		var right = Input.is_key_pressed(KEY_D)
-		dir = float(right) - float(left)
+		dir = (float(right) - float(left)) * speed_scale
 		
 	if !is_on_floor() and is_jumping:
 		if right_wall.is_colliding() and jump_direction > 0:
