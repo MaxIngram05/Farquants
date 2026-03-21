@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@onready var anim = $AnimatedSprite2D2
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
 const WALL_JUMP_VELOCITY_Y = 20.0
@@ -66,5 +66,21 @@ func _physics_process(delta: float) -> void:
 			velocity.x = dir * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, charge_direction, SPEED)
+		
+	# Animation logic - put this BEFORE move_and_slide()
+	# Animation logic
+	if is_charging:
+		# Use "idle" if you haven't made a "charging" animation yet
+		anim.play("landing") 
+	elif not is_on_floor():
+		# Use "idle" or a specific "jump" frame if you have one
+		anim.play("jumping")
+	elif dir > 0:
+		anim.play("walking_right")
+	elif dir < 0:
+		anim.play("walking_left")
+	else:
+		anim.play("idle")
+
 	
 	move_and_slide()
