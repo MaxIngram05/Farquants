@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://btdytmtkbane0"]
+
+[ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="1_jwyou"]
+
+[node name="Dialogue" type="Control" unique_id=1298749201]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1177796380]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 482.0
+theme_override_fonts/normal_font = ExtResource("1_jwyou")
+text = "SIGN THE CONTRACT SHREK!!!"
