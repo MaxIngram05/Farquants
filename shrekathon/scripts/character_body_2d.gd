@@ -27,6 +27,11 @@ var horizontal_dash_direction: Vector2 = Vector2.RIGHT
 var dash_timer: float = 0.0
 #end of dash variables
 
+#groundpound variables
+const GROUNDPOUND_VELOCITY: float = 600.0
+var is_groundpounding: bool = false
+#end of groundpound variables
+
 @export var speed_scale: float = 1.0  # Multiplier for movement (1.0 = normal, 0.2 = 20% speed)
 @export var dir = 0;
 
@@ -96,9 +101,13 @@ func _physics_process(delta: float) -> void:
 			else:
 				velocity.x = move_toward(velocity.x, charge_direction, SPEED)
 	
+	ground_pound()
 	horizontal_dash(delta)
 	veritcal_dash(delta)
 	move_and_slide()
+
+	if is_on_floor() and is_groundpounding:
+		is_groundpounding = false
 
 	# Animation and sprite flip
 		# Animation logic - put this BEFORE move_and_slide()
@@ -147,6 +156,13 @@ func veritcal_dash(delta: float) -> void:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			is_dashing = false
+
+
+func ground_pound() -> void:
+	if not is_on_floor() and not is_groundpounding and Input.is_key_pressed(KEY_S):
+		is_groundpounding = true
+		velocity.x = 0.0
+		velocity.y = GROUNDPOUND_VELOCITY
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
