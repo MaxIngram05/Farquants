@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://c54kwc7xq0nf2" path="res://scripts/main_menu.gd" id="1_0ykhv"]
 [ext_resource type="Texture2D" uid="uid://b1xr7866tijio" path="res://icon.svg" id="2_2wh52"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ykhv"]
+size = Vector2(130, 128)
+
 [node name="MainMenu" type="Control" unique_id=1836985584]
 layout_mode = 3
 anchors_preset = 15
@@ -17,16 +20,45 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1538517152]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1392921]
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1392921]
 layout_mode = 2
 text = "Play Game"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747079431]
-position = Vector2(300, 167)
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1854332486]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="MaxPlaceholder" type="Sprite2D" parent="." unique_id=747079431]
+position = Vector2(133, 356.76)
+scale = Vector2(1, 2)
 texture = ExtResource("2_2wh52")
+
+[node name="CreditsImage" type="Sprite2D" parent="." unique_id=888799541]
+position = Vector2(500, 350)
+texture = ExtResource("2_2wh52")
+
+[node name="Area2D" type="Area2D" parent="CreditsImage" unique_id=1019863266]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreditsImage/Area2D" unique_id=857726121]
+shape = SubResource("RectangleShape2D_0ykhv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=37212313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -411.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[shake rate=50.0 level=5 connected=1] [center] SHREK AND THE  [/center] [/shake]"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
