@@ -15,7 +15,8 @@ public partial class Mosquito : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		shrek = GetTree().CurrentScene.FindChild("Shrek(player)", true, false) as CharacterBody2D;
+		shrek = GetTree().CurrentScene.GetNode<CharacterBody2D>("Shrek");
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,7 +44,7 @@ public partial class Mosquito : CharacterBody2D
 	{                 
 		// Push player then die
 		GD.Print("Area entered by: " + body.Name);
-		if (body.Name == "Shrek(player)") 
+		if (body.Name == "Shrek") 
 		{
 			GD.Print("Success! Mosquito hit Shrek.");
 			// Push shrek
@@ -58,12 +59,12 @@ public partial class Mosquito : CharacterBody2D
 		QueueFree();  
 	}
 	
-	public void Activate(Node body) { 
-	if(!activated && shrek != null) {
-		shrekDirection = (shrek.GlobalPosition - GlobalPosition).Normalized();
-		activated = true;
+	public void Activate(Node body){ 
+		if(!activated){
+			shrekDirection = (this.shrek.GlobalPosition - GlobalPosition).Normalized();
+			activated = true;
+		}
 	}
-}
 	
 	/* Antequated logic
 	
