@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b2mkoaw7c2ms4"]
+
+[ext_resource type="Script" uid="uid://c54kwc7xq0nf2" path="res://scripts/main_menu.gd" id="1_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://b1xr7866tijio" path="res://icon.svg" id="2_2wh52"]
+
+[node name="MainMenu" type="Control" unique_id=1836985584]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ykhv")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=324032989]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1538517152]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1392921]
+layout_mode = 2
+text = "Play Game"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747079431]
+position = Vector2(300, 167)
+texture = ExtResource("2_2wh52")
