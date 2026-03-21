@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bm3x8y2k74twl" path="res://placeholders/Scenes/killzone.tscn" id="5_tob6u"]
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="6_ckmbu"]
 [ext_resource type="FontFile" uid="uid://cpkqyj26o8l5p" path="res://placeholders/Assets/fonts/PixelOperator8.ttf" id="6_i7xxu"]
+[ext_resource type="Script" uid="uid://buomv3i744orv" path="res://scenes/Mosquito.cs" id="7_acxp7"]
+[ext_resource type="Texture2D" uid="uid://cgfpkf0xll0qf" path="res://placeholders/Assets/sprites/mosquito_placeholder.png" id="8_3ahxw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("3_acxp7")
@@ -173,6 +175,12 @@ sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_acxp7"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ahxw"]
+radius = 104.0
+
 [node name="Game" type="Node2D" unique_id=1529407734]
 
 [node name="GameManager" type="Node" parent="." unique_id=445380449]
@@ -231,11 +239,39 @@ theme_override_fonts/font = ExtResource("6_i7xxu")
 theme_override_font_sizes/font_size = 8
 text = "You made it!"
 
-[node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("6_ckmbu")]
+[node name="Shrek" parent="." unique_id=199883520 instance=ExtResource("6_ckmbu")]
+disable_mode = 2
 
-[node name="Camera2D" type="Camera2D" parent="Shrek(player)" unique_id=1449746345]
+[node name="Camera2D" type="Camera2D" parent="Shrek" unique_id=1449746345]
 position = Vector2(0, -8)
 zoom = Vector2(2, 2)
 limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Mosquito" type="Node2D" parent="." unique_id=1501189189]
+position = Vector2(-111, -111)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Mosquito" unique_id=1359133682]
+disable_mode = 2
+motion_mode = 1
+safe_margin = 25.393
+script = ExtResource("7_acxp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mosquito/CharacterBody2D" unique_id=695901223]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("8_3ahxw")
+
+[node name="Area2D" type="Area2D" parent="Mosquito/CharacterBody2D" unique_id=689996724]
+priority = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mosquito/CharacterBody2D/Area2D" unique_id=231386324]
+shape = SubResource("CircleShape2D_acxp7")
+
+[node name="Parkway Gardens" type="Area2D" parent="Mosquito" unique_id=731784506]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mosquito/Parkway Gardens" unique_id=1169880389]
+shape = SubResource("CircleShape2D_3ahxw")
+
+[connection signal="body_entered" from="Mosquito/CharacterBody2D/Area2D" to="Mosquito/CharacterBody2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="Mosquito/Parkway Gardens" to="Mosquito/CharacterBody2D" method="Activate"]
