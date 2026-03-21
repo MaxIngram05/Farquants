@@ -9,6 +9,7 @@ var base_dialogue: Array[String] = [
 ]
 
 var current_dialogue_index = 0
+var can_advance_text:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,19 +20,31 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_accept") and can_advance_text == true   :
+		advance()
 
 func show_text():
+	can_advance_text = false
 	var current_text = base_dialogue[current_dialogue_index]
 	rich_text_label.text = current_text
 	rich_text_label.visible_ratio = 0
 	var tween = create_tween()
 	var text_show_duration:float = current_text.length() / 15
 	tween.tween_property(rich_text_label, "visible_ratio", 1, text_show_duration)
+	var sound_offset = audio_stream_player.stream.get_length() - text_show_duration
+	var sound_start = randf() * sound_offset
+	audio_stream_player.play(sound_start)
+	tween.finished.connect(func() -> void:
+		audio_stream_player.stop()
+		can_advance_text = true
+	)
 
 func advance():
 	current_dialogue_index += 1
-	show_text()
+	if current_dialogue_index == len(base_dialogue):
+		get_tree().quit()
+	else:
+		show_text()
 	
 func settle_dialogue():
 	pass
