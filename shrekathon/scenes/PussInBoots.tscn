@@ -1,10 +1,40 @@
 [gd_scene format=3 uid="uid://cbggl6820xwc3"]
 
 [ext_resource type="Script" uid="uid://cqta7tttpolrs" path="res://scripts/NPCs/PussInBoots.gd" id="1_cx4gm"]
+[ext_resource type="Texture2D" uid="uid://bx6s7ni6vtqmw" path="res://placeholders/Assets/sprites/pussinboots.png" id="2_ha8nt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq12f"]
+atlas = ExtResource("2_ha8nt")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77xvc"]
+atlas = ExtResource("2_ha8nt")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk0ic"]
+atlas = ExtResource("2_ha8nt")
+region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cx4gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77xvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk0ic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ha8nt"]
+radius = 16.0
+height = 48.0
 
 [node name="PussInBoots" type="Node2D" unique_id=428383905]
 script = ExtResource("1_cx4gm")
@@ -12,7 +42,9 @@ dialogue = Array[String](["meow", "meow"])
 npc_karma_reward = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1782409549]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_cx4gm")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1585199691]
 collision_layer = 2

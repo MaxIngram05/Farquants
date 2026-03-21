@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://deyg7cr3srxpy"]
 
+[ext_resource type="Script" uid="uid://d1t1uk17ujbok" path="res://scripts/environmentFeatures/slowArea.gd" id="1_458pw"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfafj"]
 size = Vector2(71, 51)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vfafj"]
 
 [node name="SlowArea" type="Area2D" unique_id=2089536720]
+script = ExtResource("1_458pw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004670439]
+light_mask = 3
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_vfafj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=174616900]
 sprite_frames = SubResource("SpriteFrames_vfafj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
