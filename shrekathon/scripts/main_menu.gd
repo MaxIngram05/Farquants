@@ -1,18 +1,27 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var vbox = $CenterContainer/VBoxContainer
+	var credits_button = Button.new()
+	credits_button.text = "Credits"
+	credits_button.layout_mode = 2
+	credits_button.pressed.connect(_on_credits_button_pressed)
+	# Insert before QuitButton (index 1)
+	vbox.add_child(credits_button)
+	vbox.move_child(credits_button, 1)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 
 func _on_play_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/testscene.tscn")
+
+
+func _on_credits_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 
 func _on_quit_button_pressed() -> void:

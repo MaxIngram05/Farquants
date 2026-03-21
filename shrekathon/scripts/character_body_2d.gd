@@ -104,11 +104,14 @@ func _physics_process(delta: float) -> void:
 		anim.play("walking_right")
 	elif dir < 0:
 		anim.play("walking_left")
+	elif Input.is_key_pressed(KEY_SHIFT):
+		anim.play("dashing_left")
 	else:
 		anim.play("idle")
 
 func horizontal_dash(delta: float) -> void:
 	var input_dir:float = Input.get_axis("left", "right")
+	
 	if input_dir != 0:
 		horizontal_dash_direction.x = input_dir
 	if can_horz_dash and UnlockSystem.obtainedHorizontalDash and Input.is_action_just_pressed("horizontal_dash"):
@@ -117,6 +120,7 @@ func horizontal_dash(delta: float) -> void:
 		is_dashing = true
 		dash_timer = DASH_TIME
 		velocity = horizontal_dash_direction * DASH_AMOUNT
+		
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
