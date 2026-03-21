@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="shrekathon"
+<<<<<<< HEAD
+=======
+run/main_scene="uid://bivscskoakbr4"
+>>>>>>> 7a15cda2014b46bfd25d5a3b815b53243902be49
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
