@@ -7,6 +7,7 @@ var icons = {
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
 	"mirror": preload("res://assets/mirror_png_icon.png"),
 	"fiona": 5,
+	"farquaad": 5,
 	"nothing": null
 }
 
@@ -16,7 +17,8 @@ var audios = {
 	"puss": preload("res://audio/longer_audio/puss_dialogue2.mp3"),
 	"rumpel": preload("res://audio/longer_audio/rumpy_dialogue_longer+louder.mp3"),
 	"mirror": preload("res://placeholders/Assets/sounds/talking_synth.ogg"),
-	"fiona": 5,
+	"fiona": preload("res://audio/longer_audio/fiona_dialogue.mp3"),
+	"farquaad": preload("res://audio/longer_audio/fiona_dialogue.mp3"),
 	"nothing": null
 }
 
@@ -115,7 +117,7 @@ var donkey_dialogue_one = [
 	},
 	{
 		"icon": icons["donkey"],
-		"text": "You gotta save Fiona Shrek! She's at the mountain’s peak with [shake][color=red]Lord Farquaad[/color][/shake]!",
+		"text": "You gotta save [color=green]Fiona[/color] Shrek! She's at the mountain’s peak with [shake][color=red]Lord Farquaad[/color][/shake]!",
 		"audio": audios["donkey"]
 	},
 	{
@@ -208,7 +210,7 @@ var puss_dialogue_one = [
 	},
 	{
 		"icon": icons["shrek"],
-		"text": "But of course, he has [color=red]Fiona[/color] up there with him!",
+		"text": "But of course, he has [color=green]Fiona[/color] up there with him!",
 		"audio": audios["shrek"]
 	},
 	{
@@ -266,7 +268,7 @@ var puss_dialogue_yes = [
 	},
 	{
 		"icon": icons["shrek"],
-		"text": "Ohohoooo! This seemes promising.",
+		"text": "Ohohoooo! This seems promising.",
 		"audio": audios["shrek"]
 	},
 	{
@@ -321,7 +323,7 @@ var rumpel_dialogue_one = [
 	},
 	{
 		"icon": icons["rumpel"],
-		"text": "I know Fiona is up there Shrek. And you're in the final stretch.",
+		"text": "I know [color=green]Fiona[/color] is up there Shrek. And you're in the final stretch.",
 		"audio": audios["rumpel"]
 	},
 	{
@@ -397,12 +399,59 @@ var rumpel_dialogue_no = [
 	},
 ]
 
-var fiona_dialogue = 0
+var fiona_dialogue = [
+	{
+		"icon": icons["fiona"],
+		"text": "Shrek! You made it!",
+		"audio": audios["fiona"]
+	},
+	{
+		"icon": icons["farquaad"],
+		"text": "THE FILTHY OGRE MADE IT!",
+		"audio": audios["farquaad"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "Come on Fiona! I'll take down [color=red]Farquaad[/color] and then let's go home",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["fiona"],
+		"text": "Shrek, I...",
+		"audio": audios["fiona"]
+	},
+	{
+		"icon": icons["fiona"],
+		"text": "<reaction on how good you have been>",
+		"audio": audios["fiona"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "<second reaction on how good you have been>",
+		"audio": audios["fiona"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "<third reaction on how good you have been>",
+		"audio": audios["fiona"]
+	},
+	{
+		"icon": icons["farquaad"],
+		"text": "<reaction on how good you have been>",
+		"audio": audios["farquaad"]
+	},
+	{
+		"icon": icons["farquaad"],
+		"text": "<second reaction on how good you have been>",
+		"audio": audios["farquaad"]
+	},
+]
 
 var is_mirror_talking = false
 var is_donkey_talking = false
 var is_puss_talking = false
 var is_rumpel_talking = false
+var is_fiona_talking = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -419,6 +468,17 @@ func make_talking_false():
 	is_donkey_talking = false
 	is_puss_talking = false
 	is_rumpel_talking = false
+	is_fiona_talking = false
+
+func prepare_fiona_ending():
+	is_fiona_talking = true
+	if UnlockSystem.is_good_ending():
+		pass
+	if UnlockSystem.is_bad_ending():
+		pass
+	else:
+		pass
+	current_text = fiona_dialogue
 
 func prepare_mirror_dialogue():
 	is_mirror_talking = true

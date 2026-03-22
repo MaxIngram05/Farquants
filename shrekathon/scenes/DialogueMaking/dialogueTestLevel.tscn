@@ -204,8 +204,6 @@ shape = SubResource("WorldBoundaryShape2D_i6g32")
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("4_48jq2")]
 z_index = 67
 position = Vector2(-215, 264)
-speed_scale = null
-dir = null
 
 [node name="Camera2D" parent="Shrek(player)" unique_id=1938074516 instance=ExtResource("5_d6edl")]
 position = Vector2(1, -4)
