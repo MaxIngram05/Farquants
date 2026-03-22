@@ -56,6 +56,7 @@ func _on_damage_area_2d_body_entered(body: Node2D) -> void:
 		print("GGB man")
 		if body is CharacterBody2D:
 			knocked_player = body
+			body.play_hit_sound()
 
 func _on_damage_area_2d_body_exited(body: Node2D) -> void:
 	if body == knocked_player:

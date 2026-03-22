@@ -3,6 +3,12 @@ extends CharacterBody2D
 
 const DIALOGUE_SCENE = preload("res://scenes/dialogue_panel.tscn")
 
+# Sound effects
+var sfx_jump: AudioStreamPlayer
+var sfx_fart_jump: AudioStreamPlayer
+var sfx_ground_pound: AudioStreamPlayer
+var sfx_enemy_hit: AudioStreamPlayer
+
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
 const WALL_JUMP_VELOCITY_Y = 20.0
@@ -46,9 +52,19 @@ var is_groundpounding: bool = false
 @onready var left_wall: RayCast2D = $LeftWall
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _create_sfx(path: String) -> AudioStreamPlayer:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	add_child(player)
+	return player
+
 func _ready() -> void:
 	add_to_group("player")
 	UnlockSystem.can_move = true
+	sfx_jump = _create_sfx("res://audio/shrek_jumps.mp3")
+	sfx_fart_jump = _create_sfx("res://audio/fart_jump.mp3")
+	sfx_ground_pound = _create_sfx("res://audio/ground_pound.mp3")
+	sfx_enemy_hit = _create_sfx("res://audio/ohhhh.wav")
 
 func _physics_process(delta: float) -> void:
 	#people interaction
@@ -108,6 +124,7 @@ func _physics_process(delta: float) -> void:
 				is_jumping = true
 				charge_time = 0.0
 				charge_direction = 0.0
+				sfx_jump.play()
 			elif is_on_floor():
 				# Normal horizontal movement
 				is_jumping = false
@@ -165,11 +182,16 @@ func veritcal_dash(delta: float) -> void:
 		vertical_jumps -= 1
 		dash_timer = DASH_TIME
 		velocity = vertical_dash_direction * DASH_AMOUNT
+		sfx_fart_jump.play()
 		print(vertical_jumps)
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			is_dashing = false
+
+
+func play_hit_sound() -> void:
+	sfx_enemy_hit.play()
 
 
 func ground_pound() -> void:
@@ -179,6 +201,7 @@ func ground_pound() -> void:
 		is_groundpounding = true
 		velocity.x = 0.0
 		velocity.y = GROUNDPOUND_VELOCITY
+		sfx_ground_pound.play()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
