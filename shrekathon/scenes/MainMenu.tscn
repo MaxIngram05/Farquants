@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://bjc6ncj46kyok" path="res://assets/alpha_box.tres" id="4_826wr"]
 [ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="4_ow34m"]
 [ext_resource type="AudioStream" uid="uid://ceq4xk2jl7w6t" path="res://audio/concordia-university-3_KZH681Id.mp3" id="4_ucygd"]
+[ext_resource type="AudioStream" uid="uid://iksjn6f3e4qx" path="res://audio/music/raw/menu part 1.ogg" id="7_ucygd"]
 
 [sub_resource type="Animation" id="Animation_2wh52"]
 length = 0.43333334
@@ -201,6 +202,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.52113897, 0.45875782, 0.33484617, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1447560074]
+stream = ExtResource("7_ucygd")
+volume_db = 9.72
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
