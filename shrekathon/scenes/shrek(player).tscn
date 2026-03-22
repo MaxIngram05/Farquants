@@ -572,4 +572,6 @@ collide_with_areas = true
 position = Vector2(-0.5, -11.5)
 shape = SubResource("RectangleShape2D_4fhur")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

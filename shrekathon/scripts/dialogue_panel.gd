@@ -14,7 +14,6 @@ var can_advance_text:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_dialogue_index = 0
-	show_text()
 	rich_text_label.visible_ratio = 0
 
 
@@ -42,7 +41,8 @@ func show_text():
 func advance():
 	current_dialogue_index += 1
 	if current_dialogue_index == len(base_dialogue):
-		get_tree().quit()
+		UnlockSystem.can_move = true
+		queue_free()
 	else:
 		show_text()
 	
