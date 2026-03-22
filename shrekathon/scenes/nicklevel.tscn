@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://uxdq0cd52y4e" path="res://assets/tiles/green_onion_tilemap.png" id="6_1a35t"]
 [ext_resource type="PackedScene" path="res://scenes/Environment/SlowArea.tscn" id="6_mnm7h"]
 [ext_resource type="PackedScene" path="res://scenes/Environment/FireRising.tscn" id="12_lbh5e"]
+[ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="13_wx8f7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_sr4vm")
@@ -327,39 +328,39 @@ position = Vector2(-398, -69)
 position = Vector2(1, -4)
 zoom = Vector2(3, 3)
 
-[node name="mud" type="Node" parent="." unique_id=702291795]
+[node name="hazards" type="Node" parent="." unique_id=702291795]
 
-[node name="SlowArea" parent="mud" unique_id=2089536720 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea" parent="hazards" unique_id=2089536720 instance=ExtResource("6_mnm7h")]
 position = Vector2(-177, -25)
 
-[node name="SlowArea3" parent="mud" unique_id=1668969468 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea3" parent="hazards" unique_id=1668969468 instance=ExtResource("6_mnm7h")]
 position = Vector2(-241, -25)
 
-[node name="SlowArea2" parent="mud" unique_id=1345958592 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea2" parent="hazards" unique_id=1345958592 instance=ExtResource("6_mnm7h")]
 position = Vector2(-112, -25)
 scale = Vector2(1.0292578, 1.0075825)
 
-[node name="SlowArea4" parent="mud" unique_id=756246735 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea4" parent="hazards" unique_id=756246735 instance=ExtResource("6_mnm7h")]
 position = Vector2(-320, -394)
 scale = Vector2(1.5599976, 1)
 
-[node name="SlowArea5" parent="mud" unique_id=492162199 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea5" parent="hazards" unique_id=492162199 instance=ExtResource("6_mnm7h")]
 position = Vector2(-224, -331)
 scale = Vector2(0.9999975, 1)
 
-[node name="SlowArea6" parent="mud" unique_id=1290877155 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea6" parent="hazards" unique_id=1290877155 instance=ExtResource("6_mnm7h")]
 position = Vector2(-152, -331)
 scale = Vector2(0.79999995, 1)
 
-[node name="SlowArea7" parent="mud" unique_id=1143199440 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea7" parent="hazards" unique_id=1143199440 instance=ExtResource("6_mnm7h")]
 position = Vector2(-95.99999, -346)
 scale = Vector2(0.5200012, 1)
 
-[node name="SlowArea8" parent="mud" unique_id=1720749778 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea8" parent="hazards" unique_id=1720749778 instance=ExtResource("6_mnm7h")]
 position = Vector2(-360, -506)
 scale = Vector2(0.8, 1)
 
-[node name="SlowArea9" parent="mud" unique_id=630758685 instance=ExtResource("6_mnm7h")]
+[node name="SlowArea9" parent="hazards" unique_id=630758685 instance=ExtResource("6_mnm7h")]
 position = Vector2(-216, -506)
 scale = Vector2(0.8, 1)
 
@@ -367,3 +368,9 @@ scale = Vector2(0.8, 1)
 position = Vector2(-223, -3519)
 rise_speed = 10.0
 PLAYER_START_POSITION = Vector2(-398, -3650)
+
+[node name="BloomingOnion" parent="." unique_id=1953261989 instance=ExtResource("13_wx8f7")]
+position = Vector2(-298, -2155)
+
+[node name="BloomingOnion2" parent="." unique_id=108369746 instance=ExtResource("13_wx8f7")]
+position = Vector2(-128, -2378)
