@@ -3,18 +3,18 @@ extends Node
 var icons = {
 	"shrek": preload("res://assets/gingerbreadman.png"),
 	"donkey": preload("res://assets/sad-doney-sad-face2_compressed.png"),
-	"pussBoots": 2,
+	"puss": preload("res://assets/gingerbreadman.png"),
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
-	"mirror": preload("res://assets/max_lollipop.png"),
+	"mirror": preload("res://assets/mirror_png_icon.png"),
 	"fiona": 5,
 	"nothing": null
 }
 
 var audios = {
-	"shrek": preload("res://audio/shrek_dialogue_combination3.mp3"),
-	"donkey": preload("res://audio/donkey_dialogue_combination_(compressed).mp3"),
-	"pussBoots": 2,
-	"rumpel": preload("res://audio/donkey_dialogue_combination_(compressed).mp3"),
+	"shrek": preload("res://audio/longer_audio/shrek_dialogue_+16seconds_copy.mp3"),
+	"donkey": preload("res://audio/longer_audio/donkey_dialogue_longer.mp3"),
+	"puss": preload("res://audio/longer_audio/puss_dialogue2.mp3"),
+	"rumpel": preload("res://audio/longer_audio/rumpy_dialogue_longer+louder.mp3"),
 	"mirror": preload("res://placeholders/Assets/sounds/talking_synth.ogg"),
 	"fiona": 5,
 	"nothing": null
@@ -154,12 +154,149 @@ var donkey_dialogue_one = [
 		"audio": audios["donkey"]
 	}
 ]
-var donkey_dialogue_yes = 0
-var donkey_dialogue_no = 0
+var donkey_dialogue_yes = [
+	{
+		"icon": icons["nothing"],
+		"text": "You ate the Magic Waffles. They were delicious but you can't let Donkey know that.",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["nothing"],
+		"text": "The magic enters your body and you gain the [color=green]WAFFLE DASH[/color]",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["nothing"],
+		"text": "Press the Shift key to dash horizontally.",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["donkey"],
+		"text": "Wow! You must’ve been REALLY hungry huh? Wellllll… how were they?",
+		"audio": audios["donkey"]
+	},
+	{
+		"icon": icons["donkey"],
+		"text": "Fine, thank you Donkey. I'll be on my way now.",
+		"audio": audios["donkey"]
+	}
+]
 
-var puss_dialogue_one = 0
-var puss_dialogue_yes = 0
-var puss_dialogue_no = 0
+var donkey_dialogue_no = [
+	{
+		"icon": icons["nothing"],
+		"text": "[color=red]You threw away Magic Waffles[/color]. The thought of eating them insulted you.",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["donkey"],
+		"text": "Oh.",
+		"audio": audios["donkey"]
+	},
+	{
+		"icon": icons["donkey"],
+		"text": "Well... I... I see how it is Shrek!",
+		"audio": audios["donkey"]
+	}
+]
+
+var puss_dialogue_one = [
+	{
+		"icon": icons["puss"],
+		"text": "Ahhh, Shrek! I should've known you'd be here to defeat the evil [color=red]Lord Farquaad![/color]",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "But of course, he has [color=red]Fiona[/color] up there with him!",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "¡Dios mío! You need to get there as soon as you can!",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "I might have something for you, I've learned some magic that might help you.",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "But to do so, I need to be pet.",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "What? You can't be serious?!",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "Oh but I am! Please Shrek, it won't take that long! It'll be worth it!",
+		"audio": audios["puss"]
+	}
+]
+
+var puss_dialogue_yes = [
+	{
+		"icon": icons["puss"],
+		"text": "Ahhhhh, that felt great! You're quite the cat person, Shrek!",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "Ok now to use up my end of the deal",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["nothing"],
+		"text": "Puss throws a magic bean into your mouth.",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["nothing"],
+		"text": "You gained the [color=green] CAT DASH[/color].",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["nothing"],
+		"text": "Press the space bar while up in the air to shoot up vertically.",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "Ohohoooo! This seemes promising.",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["shrek"],
+		"text": "But wait, did you REALLY need to be pet to just do that?",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "[shake]Hahahaaaa[/shake].... nah.",
+		"audio": audios["puss"]
+	}
+]
+var puss_dialogue_no = [
+	{
+		"icon": icons["nothing"],
+		"text": "[color=red]You ignore Puss' request and splash him with water[/color].",
+		"audio": audios["shrek"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "[shake] AAAAAAAAAAAA [/shake]",
+		"audio": audios["puss"]
+	},
+	{
+		"icon": icons["puss"],
+		"text": "[shake] HISSSSSSSSSS [/shake] I see my services here are not welcome",
+		"audio": audios["puss"]
+	}
+]
 
 var rumpel_dialogue_one = [
 	{
@@ -250,7 +387,7 @@ var rumpel_dialogue_no = [
 	},
 	{
 		"icon": icons["nothing"],
-		"text": "You hit Rumpelstilskin and gain XXX",
+		"text": "[color=red]You hit Rumpelstilskin. It feels good getting a physcial payback on him.[/color]",
 		"audio": audios["shrek"]
 	},
 	{
@@ -260,12 +397,6 @@ var rumpel_dialogue_no = [
 	},
 ]
 
-var puss_dialogue_ones = ["puss dialogue one", 
-"puss dialogue two", 
-"puss dialogue three"]
-var rumpel_dialogues = ["rumpel dialogue one", 
-"rumpel dialogue two", 
-"rumpel dialogue three"]
 var fiona_dialogue = 0
 
 var is_mirror_talking = false
@@ -304,19 +435,22 @@ func prepare_donkey_dialogue():
 	current_text = donkey_dialogue_one
 
 func shrek_yes_donkey():
-	current_text = ["lol"]
+	current_text = donkey_dialogue_yes
+	UnlockSystem.obtainedHorizontalDash = true
 
 func shrek_no_donkey():
-	current_text = ["idk"]
+	current_text = donkey_dialogue_no
 
 func prepare_puss_dialogue():
 	is_puss_talking = true
+	current_text = puss_dialogue_one
 
 func shrek_yes_puss():
-	current_text = ["lol"]
+	current_text = puss_dialogue_yes
+	UnlockSystem.obtainedVerticalDash = true
 
 func shrek_no_puss():
-	current_text = ["idk"]
+	current_text = puss_dialogue_no
 
 func prepare_rumpel_dialogue():
 	is_rumpel_talking = true
@@ -324,7 +458,7 @@ func prepare_rumpel_dialogue():
 
 func shrek_yes_rumpel():
 	current_text = rumpel_dialogue_yes
+	UnlockSystem.obtainedJumpExtend = true
 
 func shrek_no_rumpel():
 	current_text = rumpel_dialogue_no
-	UnlockSystem.obtainedHorizontalDash = true

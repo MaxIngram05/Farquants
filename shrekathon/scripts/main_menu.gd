@@ -30,6 +30,6 @@ func _on_quit_button_pressed() -> void:
 
 func _on_max_button_pressed() -> void:
 	print("max!")
-	max_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+	max_sfx_player.pitch_scale = randf_range(0.9, 1.3)
 	max_sfx_player.play()
 	v_box_container.show()

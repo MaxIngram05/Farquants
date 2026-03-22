@@ -133,7 +133,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					velocity.x = move_toward(velocity.x, charge_direction, SPEED)
 
-		ground_pound()
+		#ground_pound()
 		horizontal_dash(delta)
 		veritcal_dash(delta)
 		move_and_slide()
@@ -195,14 +195,14 @@ func play_hit_sound() -> void:
 	sfx_enemy_hit.play()
 
 
-func ground_pound() -> void:
-	if not UnlockSystem.obtainedGroundPound:
-		return
-	if not is_on_floor() and not is_groundpounding and Input.is_key_pressed(KEY_S):
-		is_groundpounding = true
-		velocity.x = 0.0
-		velocity.y = GROUNDPOUND_VELOCITY
-		sfx_ground_pound.play()
+#func ground_pound() -> void:
+	#if not UnlockSystem.obtainedGroundPound:
+		#return
+	#if not is_on_floor() and not is_groundpounding and Input.is_key_pressed(KEY_S):
+		#is_groundpounding = true
+		#velocity.x = 0.0
+		#velocity.y = GROUNDPOUND_VELOCITY
+		#sfx_ground_pound.play()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
