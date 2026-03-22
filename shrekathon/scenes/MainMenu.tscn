@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://c54kwc7xq0nf2" path="res://scripts/main_menu.gd" id="1_0ykhv"]
 [ext_resource type="Texture2D" uid="uid://dysy1hfsbm3jw" path="res://assets/max_lollipop.png" id="2_2wh52"]
 [ext_resource type="Theme" uid="uid://d3rvllsw5vflr" path="res://assets/button_theeme.tres" id="2_l72w3"]
-[ext_resource type="PackedScene" uid="uid://c1o6uutpi74lc" path="res://scenes/credits_image.tscn" id="3_2wh52"]
+[ext_resource type="StyleBox" uid="uid://bjc6ncj46kyok" path="res://assets/alpha_box.tres" id="4_826wr"]
 [ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="4_ow34m"]
+[ext_resource type="AudioStream" uid="uid://ceq4xk2jl7w6t" path="res://audio/concordia-university-3_KZH681Id.mp3" id="4_ucygd"]
 
 [sub_resource type="Animation" id="Animation_2wh52"]
 length = 0.43333334
@@ -44,6 +45,12 @@ _data = {
 &"max_animation": SubResource("Animation_ow34m")
 }
 
+[sub_resource type="Theme" id="Theme_ucygd"]
+Button/styles/focus = ExtResource("4_826wr")
+Button/styles/hover = ExtResource("4_826wr")
+Button/styles/normal = ExtResource("4_826wr")
+Button/styles/pressed = ExtResource("4_826wr")
+
 [node name="MainMenu" type="Control" unique_id=1836985584]
 layout_mode = 3
 anchors_preset = 15
@@ -58,34 +65,31 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -80.0
+offset_left = -2.0
+offset_top = 39.0
+offset_right = -2.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1538517152]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1392921]
 layout_mode = 2
 theme = ExtResource("2_l72w3")
 text = "Play Game"
 
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1547835595]
+layout_mode = 2
+theme = ExtResource("2_l72w3")
+text = "Credits"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1854332486]
 layout_mode = 2
 theme = ExtResource("2_l72w3")
 text = "Quit Game"
-
-[node name="MaxPlaceholder" type="Sprite2D" parent="." unique_id=747079431]
-position = Vector2(253, 746)
-scale = Vector2(1, 2)
-texture = ExtResource("2_2wh52")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MaxPlaceholder" unique_id=769848229]
-libraries/ = SubResource("AnimationLibrary_l72w3")
-autoplay = &"max_animation"
-
-[node name="CreditsImage" parent="." unique_id=545912086 instance=ExtResource("3_2wh52")]
-position = Vector2(491, 367)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1106758557]
 layout_mode = 0
@@ -98,5 +102,41 @@ text = "[wave]Jump[color=green]SHREK[/color][/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SubtitleLabel" type="RichTextLabel" parent="." unique_id=2117155278]
+layout_mode = 0
+offset_top = 83.0
+offset_right = 1286.0
+offset_bottom = 253.0
+theme_override_fonts/normal_font = ExtResource("4_ow34m")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Reach to the top to find [wave]FIONA[/wave]!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=769848229]
+root_node = NodePath("../MaxButton/MaxPlaceholder")
+libraries/ = SubResource("AnimationLibrary_l72w3")
+autoplay = &"max_animation"
+
+[node name="MaxSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1139767579]
+stream = ExtResource("4_ucygd")
+pitch_scale = 1.1
+
+[node name="MaxButton" type="Button" parent="." unique_id=647452726]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 522.0
+offset_right = 378.315
+offset_bottom = 985.96497
+theme = SubResource("Theme_ucygd")
+
+[node name="MaxPlaceholder" type="Sprite2D" parent="MaxButton" unique_id=747079431]
+position = Vector2(116, 258)
+scale = Vector2(1, 2)
+texture = ExtResource("2_2wh52")
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MaxButton" to="." method="_on_max_button_pressed"]

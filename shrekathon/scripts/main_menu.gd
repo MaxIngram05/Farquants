@@ -1,23 +1,21 @@
 extends Control
+@onready var credits_button: Button = $CenterContainer/VBoxContainer/CreditsButton
+@onready var max_sfx_player: AudioStreamPlayer = $MaxSFXPlayer
+@onready var v_box_container: VBoxContainer = $CenterContainer/VBoxContainer
 
 
 func _ready() -> void:
-	var vbox = $CenterContainer/VBoxContainer
-	var credits_button = Button.new()
-	credits_button.text = "Credits"
 	credits_button.layout_mode = 2
-	credits_button.pressed.connect(_on_credits_button_pressed)
-	# Insert before QuitButton (index 1)
-	vbox.add_child(credits_button)
-	#vbox.move_child(credits_button, 1)
+	v_box_container.hide()
 
 
 func _process(delta: float) -> void:
 	pass
 
 
+
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/testscene.tscn")
+	get_tree().change_scene_to_file("res://scenes/DialogueMaking/dialogueTestLevel.tscn")
 
 
 func _on_credits_button_pressed() -> void:
@@ -26,3 +24,12 @@ func _on_credits_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+
+
+func _on_max_button_pressed() -> void:
+	print("max!")
+	max_sfx_player.pitch_scale = randf_range(0.9, 1.1)
+	max_sfx_player.play()
+	v_box_container.show()
