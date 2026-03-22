@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://doxf486h0ivfh"]
+
+[ext_resource type="Script" uid="uid://dqu55t6umppa" path="res://scripts/environmentFeatures/fire_rising.gd" id="1_aiq4f"]
+[ext_resource type="Texture2D" uid="uid://bk6cp64ogiv1r" path="res://assets/Group 6 - 1.png" id="1_jt8ei"]
+[ext_resource type="Texture2D" uid="uid://norfugnyhb70" path="res://assets/fix1.png" id="3_uycdh"]
+[ext_resource type="Texture2D" uid="uid://c26qfss5cuyif" path="res://assets/fix2.png" id="4_mi8nd"]
+[ext_resource type="Texture2D" uid="uid://f3cdae3fxjc1" path="res://assets/fix3.png" id="5_gttrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiq4f"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7bfq"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv3mr"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uycdh"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi8nd"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gttrh"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6onie"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iwoj"]
+atlas = ExtResource("1_jt8ei")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81xde"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aiq4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7bfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv3mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uycdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi8nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gttrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6onie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iwoj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2jg"]
+size = Vector2(496, 15)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6onie"]
+frames = 3
+speed_scale = 1.2
+frame_0/texture = ExtResource("3_uycdh")
+frame_1/texture = ExtResource("4_mi8nd")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_gttrh")
+frame_2/duration = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_aiq4f"]
+a = Vector2(0, -250)
+b = Vector2(0, 250)
+
+[node name="FireRising" type="Node2D" unique_id=62416062]
+script = ExtResource("1_aiq4f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=207187409]
+position = Vector2(-243, -11)
+sprite_frames = SubResource("SpriteFrames_81xde")
+autoplay = "default"
+frame_progress = 0.92134005
+
+[node name="DamageArea2D" type="Area2D" parent="." unique_id=120130605]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D" unique_id=1168592353]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_jj2jg")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1503963629]
+custom_minimum_size = Vector2(500, 200)
+offset_left = -251.0
+offset_top = 11.0
+offset_right = 249.0
+offset_bottom = 211.0
+texture = SubResource("AnimatedTexture_6onie")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=966255403]
+visible = false
+custom_minimum_size = Vector2(450, 800)
+offset_left = -69.0
+offset_top = 39.0
+offset_right = 431.0
+offset_bottom = 839.0
+color = Color(0.94509804, 0.24705882, 0.15294118, 1)
+
+[node name="TriggerArea2D" type="Area2D" parent="." unique_id=2040853666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D" unique_id=308268236]
+position = Vector2(0, -300)
+rotation = 1.5707964
+shape = SubResource("SegmentShape2D_aiq4f")
+
+[connection signal="body_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_body_entered"]
+[connection signal="body_entered" from="TriggerArea2D" to="." method="_on_trigger_area_2d_body_entered"]
