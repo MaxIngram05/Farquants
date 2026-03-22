@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b574at2vef3j7"
+path="res://.godot/imported/lvl3 2nd file.ogg-6ca6531bc7c9fba991d9c68ae3356a1a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/raw/lvl3 2nd file.ogg"
+dest_files=["res://.godot/imported/lvl3 2nd file.ogg-6ca6531bc7c9fba991d9c68ae3356a1a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
