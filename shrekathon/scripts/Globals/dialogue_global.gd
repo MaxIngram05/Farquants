@@ -7,7 +7,7 @@ var icons = {
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
 	"mirror": preload("res://assets/mirror_png_icon.png"),
 	"farquaad": preload("res://assets/farquad_thumbnail.png"),
-	"fiona": 5,
+	"fiona": preload("res://assets/fiona_thumbnail.png"),
 	"nothing": null
 }
 
