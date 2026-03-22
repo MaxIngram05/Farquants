@@ -14,4 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if UnlockSystem.is_good_ending():
+		pass
+	elif UnlockSystem.is_bad_ending():
+		pass
+	else:
+		pass

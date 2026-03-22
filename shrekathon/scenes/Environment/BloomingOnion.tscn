@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://3v4hhy1snfcr"]
 
 [ext_resource type="Script" uid="uid://cq82mrpr8d8qh" path="res://scripts/environmentFeatures/blooming_onion.gd" id="1_aru0h"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q6nbr"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cmdjn"]
+[ext_resource type="Texture2D" uid="uid://bvg3kmxqprmx7" path="res://assets/blooming onion.png" id="2_ufgpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pi0ib"]
 radius = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6nbr"]
+
 [node name="BloomingOnion" type="StaticBody2D" unique_id=1953261989]
 script = ExtResource("1_aru0h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270976416]
-shape = SubResource("CircleShape2D_q6nbr")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=60027644]
-sprite_frames = SubResource("SpriteFrames_cmdjn")
 
 [node name="DamageArea2D" type="Area2D" parent="." unique_id=1501152532]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D" unique_id=658217432]
 shape = SubResource("CircleShape2D_pi0ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373194083]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ufgpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270976416]
+shape = SubResource("CircleShape2D_q6nbr")
 
 [connection signal="body_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_body_entered"]
