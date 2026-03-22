@@ -201,7 +201,13 @@ func trigger_mirror_dialogue():
 	is_talking = true
 	
 	var dialogue_instance = DIALOGUE_SCENE.instantiate()
-	# Add it directly to the player so it follows you
+	
+	dialogue_instance.tree_exited.connect(func():
+		is_talking = false
+		UnlockSystem.can_move = true
+		print("Dialogue finished! Shrek is free.")
+		)
+	
 	add_child(dialogue_instance) 
 	
 	# Position it 100 pixels above the player's center
