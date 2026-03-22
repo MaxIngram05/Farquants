@@ -1,7 +1,10 @@
 extends Node
+# REPLACE THESE FOR THE APPROPRIATE LEVELSTREAMPLAYERS
+#import this, call relevant methods from the level controller
 @onready var lvl1_music = "res://audio/music/raw/lvl1 1st file.ogg"
 @onready var lvl2_music = "res://audio/music/raw/lvl2 can just loop this.ogg"
 @onready var lvl3_music = "res://audio/music/raw/lvl3 2nd file.ogg"
+@onready var boss_music = "res://audio/music/raw/bossfight 2nd file.ogg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,4 +32,8 @@ func kill_music():
 	lvl1_music.stop()
 	lvl2_music.stop()
 	lvl3_music.stop()
+	boss_music.stop()
 	
+func play_boss_music():
+	kill_music()
+	boss_music.play()

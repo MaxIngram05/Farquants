@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbm08rcyac1pq"
+path="res://.godot/imported/bossfight 1st file.ogg-f95764729e6173f8661a1128f4a141cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/raw/bossfight 1st file.ogg"
+dest_files=["res://.godot/imported/bossfight 1st file.ogg-f95764729e6173f8661a1128f4a141cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
