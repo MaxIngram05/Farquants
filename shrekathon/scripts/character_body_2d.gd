@@ -16,7 +16,7 @@ const WALL_JUMP_VELOCITY_X = 20.0
 const MAX_CHARGE_TIME = 1.0
 const CHARGE_JUMP_MULTIPLIER = 2.5
 const SUPER_CHARGE_TIME = 1.0
-const SUPER_JUMP_MULTIPLIER = 1.4142  # sqrt(2) — doubles the height
+const SUPER_JUMP_MULTIPLIER = 1.4142 # sqrt(2) — doubles the height
 
 var charge_time := 0.0
 var is_charging := false
@@ -32,9 +32,9 @@ var target_mirror = null
 const DASH_AMOUNT: float = 350.0
 const DASH_TIME: float = 0.25
 var vertical_jumps = 1
-var can_horz_dash:bool = true
-var can_vert_dash:bool = false
-var is_dashing:bool = false
+var can_horz_dash: bool = true
+var can_vert_dash: bool = false
+var is_dashing: bool = false
 var vertical_dash_direction: Vector2 = Vector2.UP
 var horizontal_dash_direction: Vector2 = Vector2.RIGHT
 var dash_timer: float = 0.0
@@ -45,7 +45,7 @@ const GROUNDPOUND_VELOCITY: float = 600.0
 var is_groundpounding: bool = false
 #end of groundpound variables
 
-@export var speed_scale: float = 1.0  # Multiplier for movement (1.0 = normal, 0.2 = 20% speed)
+@export var speed_scale: float = 1.0 # Multiplier for movement (1.0 = normal, 0.2 = 20% speed)
 @export var dir = 0;
 
 @onready var right_wall: RayCast2D = $RightWall
@@ -68,10 +68,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#people interaction
-
-
-
-
 	if UnlockSystem.can_move:
 		# Apply gravity
 		if not is_on_floor():
@@ -159,7 +155,7 @@ func _physics_process(delta: float) -> void:
 			anim.play("idle")
 
 func horizontal_dash(delta: float) -> void:
-	var input_dir:float = Input.get_axis("left", "right")
+	var input_dir: float = Input.get_axis("left", "right")
 
 	if input_dir != 0:
 		horizontal_dash_direction.x = input_dir
