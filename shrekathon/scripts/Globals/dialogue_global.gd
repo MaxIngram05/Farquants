@@ -6,6 +6,7 @@ var icons = {
 	"puss": preload("res://assets/pussy_thumbnail.png"),
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
 	"mirror": preload("res://assets/mirror_png_icon.png"),
+	"farquaad": preload("res://assets/farquad_thumbnail.png"),
 	"fiona": 5,
 	"nothing": null
 }
