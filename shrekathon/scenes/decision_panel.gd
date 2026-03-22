@@ -26,8 +26,12 @@ func _process(delta: float) -> void:
 func _on_choice_one_button_pressed() -> void:
 	if DialogueGlobal.is_mirror_talking:
 		print("advance mirror to yes")
+		DialogueGlobal.shrek_yes_mirror()
+	queue_free()
 
 
 func _on_choice_two_button_pressed() -> void:
 	if DialogueGlobal.is_mirror_talking:
 		print("advance mirror to yes")
+		DialogueGlobal.shrek_no_mirror()
+	queue_free()

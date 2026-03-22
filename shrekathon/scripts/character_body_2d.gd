@@ -264,13 +264,22 @@ func show_decision_panel():
 	var decision_instance = DECISION_PANEL.instantiate()
 	
 	decision_instance.tree_exited.connect(func():
-		is_talking = false
-		UnlockSystem.can_move = true
-		DialogueGlobal.is_mirror_talking = false # Reset the global flag
-		print("Decision made! Shrek is free.")
-		is_talking = false
-		UnlockSystem.can_move = true
+		trigger_overall_dialogue_after_choice()
 	)
 	add_child(decision_instance)
 	# Match the position where the dialogue was
 	decision_instance.position = Vector2(0, -100)
+
+func trigger_overall_dialogue_after_choice():
+	var dialogue_instance = DIALOGUE_SCENE.instantiate()
+
+	dialogue_instance.tree_exited.connect(func():
+		is_talking = false
+		UnlockSystem.can_move = true
+		DialogueGlobal.is_mirror_talking = false
+		print("Free Shrek!")
+	)
+
+	add_child(dialogue_instance)
+	dialogue_instance.position = Vector2(0, -100)
+	dialogue_instance.show_text()

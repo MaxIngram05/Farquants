@@ -20,6 +20,7 @@ var audios = {
 
 var current_text:= ["Hi!"]
 
+
 var mirror_dialogue_one = [
 	{
 		"icon": icons["shrek"],
@@ -39,16 +40,88 @@ var mirror_dialogue_one = [
 ]
 
 
-var also_mirror_dialogue = ["Hello, and WHO are you?!", 
-"It is I, the Magic Mirror from the hit Dreamworks film, Shrek 1!",
-"Would you like to learn how to play JumpSHREK?!"]
-var donkey_dialogue_one = ["donkey dialogue one", 
+var mirror_dialogue_yes = [
+	{
+		"icon": icons["mirror"],
+		"text": "Great! This game is literally Jump King. Press Space to go to the next dialogue.",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "You can jump around by holding the space bar and letting go.",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "Depending on how long you held the space bar before letting go…",
+		"audio": audios["mirror"]
+	},
+		{
+		"icon": icons["mirror"],
+		"text": "you will jump either really high or not that much",
+		"audio": audios["mirror"]
+	},
+		{
+		"icon": icons["mirror"],
+		"text": "Make sure to press the A or D key to move left or right.",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "You can hit walls while moving up, bouncing you away from them.",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "They will still carry your momentum so use this to your advantage.",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "While you’re already very strong my dear Shrek, you may acquire…",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "…newer abilities throughout your trek.",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "I suggest learning how to use them as soon as you can",
+		"audio": audios["mirror"]
+	},
+	{
+		"icon": icons["mirror"],
+		"text": "Best of luck!",
+		"audio": audios["mirror"]
+	},
+]
+
+var mirror_dialogue_no = [
+	{
+		"icon": icons["mirror"],
+		"text": "ok glhf press space to leave this conversation",
+		"audio": audios["mirror"]
+	}
+]
+
+var donkey_dialogue_one = 0
+var donkey_dialogue_yes = 0
+var donkey_dialogue_no = 0
+
+var puss_dialogue_one = 0
+var puss_dialogue_yes = 0
+var puss_dialogue_no = 0
+
+
+var donkey_dialogue_ones = ["donkey dialogue one", 
 "donkey dialogue two", 
 "donkey dialogue three"]
-var puss_dialogue_one = ["puss dialogue one", 
+var puss_dialogue_ones = ["puss dialogue one", 
 "puss dialogue two", 
 "puss dialogue three"]
-var rumpel_dialogue = ["rumpel dialogue one", 
+var rumpel_dialogues = ["rumpel dialogue one", 
 "rumpel dialogue two", 
 "rumpel dialogue three"]
 var fiona_dialogue = 0
@@ -66,8 +139,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(is_mirror_talking)
+	pass
 
 func prepare_mirror_dialogue():
 	is_mirror_talking = true
 	current_text = mirror_dialogue_one
+
+func shrek_yes_mirror():
+	current_text = mirror_dialogue_yes
+
+func shrek_no_mirror():
+	current_text = mirror_dialogue_no
+
+func prepare_puss_dialogue():
+	is_puss_talking = true
