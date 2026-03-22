@@ -23,13 +23,12 @@ func _process(delta: float) -> void:
 func show_text():
 	can_advance_text = false
 	var current_text = DialogueGlobal.current_text[current_dialogue_index]
-	print(current_text)
 	texture_rect.texture = current_text["icon"]
 	audio_stream_player.stream = current_text["audio"]
 	rich_text_label.text = current_text["text"]
 	rich_text_label.visible_ratio = 0
 	var tween = create_tween()
-	var text_show_duration:float = current_text["text"].length() / 15
+	var text_show_duration:float = current_text["text"].length() / 20
 	tween.tween_property(rich_text_label, "visible_ratio", 1, text_show_duration)
 	var sound_offset = audio_stream_player.stream.get_length() - text_show_duration
 	var sound_start = randf() * sound_offset

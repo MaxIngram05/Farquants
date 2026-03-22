@@ -32,7 +32,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dm3hs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkdo3"]
+size = Vector2(52, 58)
 
 [node name="Rumpelstilskin" type="Node2D" unique_id=937262162]
 script = ExtResource("1_6qmqv")
@@ -45,11 +46,12 @@ sprite_frames = SubResource("SpriteFrames_0s21r")
 autoplay = "default"
 frame_progress = 0.734734
 
-[node name="Area2D" type="Area2D" parent="." unique_id=81775515]
+[node name="RumpelArea" type="Area2D" parent="." unique_id=81775515]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=849313960]
-shape = SubResource("CapsuleShape2D_dm3hs")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RumpelArea" unique_id=849313960]
+light_mask = 3
+shape = SubResource("RectangleShape2D_xkdo3")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="RumpelArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="RumpelArea" to="." method="_on_area_2d_body_exited"]

@@ -55,11 +55,11 @@ autoplay = "new_animation"
 frame = 1
 frame_progress = 0.30482015
 
-[node name="Area2D" type="Area2D" parent="." unique_id=618315880]
+[node name="DonkeyArea" type="Area2D" parent="." unique_id=618315880]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=610664929]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DonkeyArea" unique_id=610664929]
 shape = SubResource("CapsuleShape2D_jvmdb")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="DonkeyArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DonkeyArea" to="." method="_on_area_2d_body_exited"]

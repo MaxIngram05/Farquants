@@ -216,11 +216,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		target_mirror = area
 		print("Near a mirror!")
 		print("target_mirror is: ", str(target_mirror))
-	if area.name == "Donkey":
-		print("donkey!")
+	if area.name == "DonkeyArea":
+		target_donkey = area
+		print("ur with donkey!")
 	if area.name == "Puss":
+		target_cat = area
 		print("puss!")
-	if area.name == "Rumpel":
+	if area.name == "RumpelArea":
+		target_rumpel = area
 		print("rumpel!")
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
@@ -228,6 +231,15 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		target_mirror = null
 		print("Left mirror range")
 		print("target_mirror is: ", str(target_mirror))
+	if area == target_donkey:
+		target_donkey = null
+		print("Left Donkey!")
+	if area == target_cat:
+		target_cat = null
+		print("Left Donkey!")
+	if area == target_rumpel:
+		target_rumpel = null
+		print("Left Rumpel!")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -237,9 +249,36 @@ func _input(event: InputEvent) -> void:
 			DialogueGlobal.prepare_mirror_dialogue()
 			UnlockSystem.can_move = false
 			trigger_mirror_dialogue()
+		if target_donkey != null:
+			print("Donkey time!")
+			DialogueGlobal.prepare_donkey_dialogue()
+			UnlockSystem.can_move = false
+			trigger_donkey_dialogue()
+		if target_cat != null:
+			print("Puss time!")
+			DialogueGlobal.prepare_puss_dialogue()
+			UnlockSystem.can_move = false
+			trigger_puss_dialogue()
+		if target_rumpel != null:
+			print("Rumpel Time!")
+			DialogueGlobal.prepare_rumpel_dialogue()
+			UnlockSystem.can_move = false
+			trigger_rumpel_dialogue()
 
 func trigger_mirror_dialogue():
 	DialogueGlobal.is_mirror_talking = true
+	trigger_overall_dialogue()
+
+func trigger_donkey_dialogue():
+	DialogueGlobal.is_donkey_talking = true
+	trigger_overall_dialogue()
+
+func trigger_puss_dialogue():
+	DialogueGlobal.is_puss_talking = true
+	trigger_overall_dialogue()
+
+func trigger_rumpel_dialogue():
+	DialogueGlobal.is_rumpel_talking = true
 	trigger_overall_dialogue()
 
 func trigger_overall_dialogue():
@@ -249,7 +288,7 @@ func trigger_overall_dialogue():
 	var dialogue_instance = DIALOGUE_SCENE.instantiate()
 
 	dialogue_instance.tree_exited.connect(func():
-		print("Dialogue finished! Shrek is free.")
+		print("Time for a Decision!")
 		show_decision_panel()
 		)
 
@@ -276,7 +315,7 @@ func trigger_overall_dialogue_after_choice():
 	dialogue_instance.tree_exited.connect(func():
 		is_talking = false
 		UnlockSystem.can_move = true
-		DialogueGlobal.is_mirror_talking = false
+		DialogueGlobal.make_talking_false()
 		print("Free Shrek!")
 	)
 
