@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://doxf486h0ivfh"]
+[gd_scene format=3 uid="uid://bpsh32b0vduo6"]
 
-[ext_resource type="Script" uid="uid://dqu55t6umppa" path="res://scripts/environmentFeatures/fire_rising.gd" id="1_aiq4f"]
+[ext_resource type="Script" path="res://scripts/environmentFeatures/fire_rising.gd" id="1_aiq4f"]
 [ext_resource type="Texture2D" uid="uid://bk6cp64ogiv1r" path="res://assets/Group 6 - 1.png" id="1_jt8ei"]
+[ext_resource type="Texture2D" uid="uid://dmthx7x2s4s4u" path="res://assets/dragon_spritesheet.png" id="3_mi8nd"]
 [ext_resource type="Texture2D" uid="uid://norfugnyhb70" path="res://assets/fix1.png" id="3_uycdh"]
 [ext_resource type="Texture2D" uid="uid://c26qfss5cuyif" path="res://assets/fix2.png" id="4_mi8nd"]
 [ext_resource type="Texture2D" uid="uid://f3cdae3fxjc1" path="res://assets/fix3.png" id="5_gttrh"]
@@ -86,6 +87,42 @@ frame_2/duration = 1.0
 a = Vector2(0, -250)
 b = Vector2(0, 250)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_81xde"]
+atlas = ExtResource("3_mi8nd")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj2jg"]
+atlas = ExtResource("3_mi8nd")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw1tl"]
+atlas = ExtResource("3_mi8nd")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no1uw"]
+atlas = ExtResource("3_mi8nd")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8fnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81xde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw1tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no1uw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="FireRising" type="Node2D" unique_id=62416062]
 script = ExtResource("1_aiq4f")
 
@@ -117,6 +154,13 @@ position = Vector2(1, -207)
 rotation = 1.5707964
 shape = SubResource("SegmentShape2D_aiq4f")
 debug_color = Color(0.9326739, 0.14788511, 0.5363833, 0.41960785)
+
+[node name="DragonSprite2D" type="AnimatedSprite2D" parent="." unique_id=1196587648]
+z_index = 14
+position = Vector2(0, -27)
+sprite_frames = SubResource("SpriteFrames_e8fnd")
+autoplay = "default"
+frame_progress = 0.43407694
 
 [connection signal="body_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_body_entered"]
 [connection signal="body_entered" from="TriggerArea2D" to="." method="_on_trigger_area_2d_body_entered"]

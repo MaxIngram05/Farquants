@@ -3,11 +3,11 @@ extends Node
 var icons = {
 	"shrek": preload("res://assets/shrek_thumbnail.png"),
 	"donkey": preload("res://assets/sad-doney-sad-face2_compressed.png"),
-	"puss": preload("res://assets/gingerbreadman.png"),
+	"puss": preload("res://assets/pussy_thumbnail.png"),
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
 	"mirror": preload("res://assets/mirror_png_icon.png"),
-	"fiona": 5,
-	"farquaad": 5,
+	"farquaad": preload("res://assets/farquad_thumbnail.png"),
+	"fiona": preload("res://assets/fiona_thumbnail.png"),
 	"nothing": null
 }
 
