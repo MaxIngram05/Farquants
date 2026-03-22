@@ -9,7 +9,7 @@ func _ready() -> void:
 	credits_button.pressed.connect(_on_credits_button_pressed)
 	# Insert before QuitButton (index 1)
 	vbox.add_child(credits_button)
-	vbox.move_child(credits_button, 1)
+	#vbox.move_child(credits_button, 1)
 
 
 func _process(delta: float) -> void:

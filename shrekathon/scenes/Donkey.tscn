@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b8522e4qyvl40"]
+
+[ext_resource type="Script" uid="uid://1elsmw1ler10" path="res://scripts/NPCs/Donkey.gd" id="1_jvmdb"]
+[ext_resource type="Texture2D" uid="uid://cvycgd513dwjd" path="res://placeholders/Assets/sprites/Donkey.png" id="2_xbdu2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phw08"]
+atlas = ExtResource("2_xbdu2")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x212u"]
+atlas = ExtResource("2_xbdu2")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf0ut"]
+atlas = ExtResource("2_xbdu2")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvmdb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phw08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x212u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf0ut")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvmdb"]
+radius = 40.0
+height = 84.0
+
+[node name="Donkey" type="Node2D" unique_id=1801920957]
+script = ExtResource("1_jvmdb")
+npc_name = "Donkey"
+is_interacting = true
+dialogue = Array[String](["Mhmmmm", "Mhmmm", "donkey", "not kong"])
+npc_karma_reward = 20
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1794370586]
+sprite_frames = SubResource("SpriteFrames_jvmdb")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame = 1
+frame_progress = 0.30482015
+
+[node name="Area2D" type="Area2D" parent="." unique_id=618315880]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=610664929]
+shape = SubResource("CapsuleShape2D_jvmdb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

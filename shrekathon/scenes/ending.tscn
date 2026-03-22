@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ca8343b0npusq"]
+
+[ext_resource type="Script" uid="uid://cuvdnqrot3lca" path="res://scripts/ending.gd" id="1_fyrdv"]
+
+[node name="Ending" type="Control" unique_id=1029953841]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyrdv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=706819661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=863820174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -92.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OutcomeImage" type="TextureRect" parent="CenterContainer" unique_id=1436640884]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1455436220]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -636.0
+offset_right = 649.0
+offset_bottom = 94.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "YOU GOT THE BAD ENDING"
+horizontal_alignment = 1
+vertical_alignment = 1

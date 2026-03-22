@@ -1,9 +1,9 @@
-[gd_scene format=4 uid="uid://idgte461roep"]
+[gd_scene format=4 uid="uid://bmqnn4bavfjt"]
 
 [ext_resource type="Script" uid="uid://bd07x6ov53h5p" path="res://placeholders/Scripts/game_manager.gd" id="1_8c41q"]
 [ext_resource type="Texture2D" uid="uid://bietq3lprrvcv" path="res://placeholders/Assets/sprites/world_tileset.png" id="3_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://bm3x8y2k74twl" path="res://placeholders/Scenes/killzone.tscn" id="4_8iemx"]
-[ext_resource type="PackedScene" uid="uid://ck8f4utovcjj2" path="res://scenes/camera_2d.tscn" id="6_2r41h"]
+[ext_resource type="PackedScene" path="res://scenes/camera_2d.tscn" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="6_fpun6"]
 [ext_resource type="PackedScene" uid="uid://1s02pse0jobi" path="res://placeholders/Scenes/slime.tscn" id="6_klq6b"]
 

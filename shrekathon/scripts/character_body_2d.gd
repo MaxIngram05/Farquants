@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 
 const DIALOGUE_SCENE = preload("res://scenes/dialogue_panel.tscn")
+const DECISION_PANEL = preload("res://scenes/decision_panel.tscn")
 
 # Sound effects
 var sfx_jump: AudioStreamPlayer
@@ -27,6 +28,9 @@ var jump_direction := 0.0
 
 var is_jumping := false;
 var target_mirror = null
+var target_donkey = null
+var target_cat = null
+var target_rumpel = null
 
 #dash variables
 const DASH_AMOUNT: float = 350.0
@@ -140,6 +144,7 @@ func _physics_process(delta: float) -> void:
 		# Animation and sprite flip
 			# Animation logic - put this BEFORE move_and_slide()
 		# Animation logic
+		
 		if is_charging or is_groundpounding:
 			anim.play("charging")
 		elif not is_on_floor():
@@ -211,6 +216,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		target_mirror = area
 		print("Near a mirror!")
 		print("target_mirror is: ", str(target_mirror))
+	if area.name == "Donkey":
+		print("donkey!")
+	if area.name == "Puss":
+		print("puss!")
+	if area.name == "Rumpel":
+		print("rumpel!")
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area == target_mirror:
@@ -223,19 +234,23 @@ func _input(event: InputEvent) -> void:
 		print("interact pressed!")
 		if target_mirror != null:
 			print("Interacting with mirror!")
+			DialogueGlobal.prepare_mirror_dialogue()
 			UnlockSystem.can_move = false
 			trigger_mirror_dialogue()
 
 func trigger_mirror_dialogue():
+	DialogueGlobal.is_mirror_talking = true
+	trigger_overall_dialogue()
+
+func trigger_overall_dialogue():
 	if is_talking: return
 	is_talking = true
 
 	var dialogue_instance = DIALOGUE_SCENE.instantiate()
 
 	dialogue_instance.tree_exited.connect(func():
-		is_talking = false
-		UnlockSystem.can_move = true
 		print("Dialogue finished! Shrek is free.")
+		show_decision_panel()
 		)
 
 	add_child(dialogue_instance)
@@ -244,3 +259,18 @@ func trigger_mirror_dialogue():
 	dialogue_instance.position = Vector2(0, -100)
 
 	dialogue_instance.show_text()
+
+func show_decision_panel():
+	var decision_instance = DECISION_PANEL.instantiate()
+	
+	decision_instance.tree_exited.connect(func():
+		is_talking = false
+		UnlockSystem.can_move = true
+		DialogueGlobal.is_mirror_talking = false # Reset the global flag
+		print("Decision made! Shrek is free.")
+		is_talking = false
+		UnlockSystem.can_move = true
+	)
+	add_child(decision_instance)
+	# Match the position where the dialogue was
+	decision_instance.position = Vector2(0, -100)
