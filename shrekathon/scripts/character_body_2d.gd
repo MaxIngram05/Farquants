@@ -44,10 +44,6 @@ var horizontal_dash_direction: Vector2 = Vector2.RIGHT
 var dash_timer: float = 0.0
 #end of dash variables
 
-#groundpound variables
-const GROUNDPOUND_VELOCITY: float = 600.0
-var is_groundpounding: bool = false
-#end of groundpound variables
 
 @export var speed_scale: float = 1.0 # Multiplier for movement (1.0 = normal, 0.2 = 20% speed)
 @export var dir = 0;
@@ -133,21 +129,16 @@ func _physics_process(delta: float) -> void:
 				else:
 					velocity.x = move_toward(velocity.x, charge_direction, SPEED)
 
-		ground_pound()
 		horizontal_dash(delta)
 		veritcal_dash(delta)
 		move_and_slide()
 
-		if is_on_floor() and is_groundpounding:
-			is_groundpounding = false
 
 		# Animation and sprite flip
 			# Animation logic - put this BEFORE move_and_slide()
 		# Animation logic
 		
-		if is_charging or is_groundpounding:
-			anim.play("charging")
-		elif not is_on_floor():
+		if not is_on_floor():
 			# Use "idle" or a specific "jump" frame if you have one
 			anim.play("jumping")
 		elif dir > 0:
@@ -194,15 +185,6 @@ func veritcal_dash(delta: float) -> void:
 func play_hit_sound() -> void:
 	sfx_enemy_hit.play()
 
-
-func ground_pound() -> void:
-	if not UnlockSystem.obtainedGroundPound:
-		return
-	if not is_on_floor() and not is_groundpounding and Input.is_key_pressed(KEY_S):
-		is_groundpounding = true
-		velocity.x = 0.0
-		velocity.y = GROUNDPOUND_VELOCITY
-		sfx_ground_pound.play()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
