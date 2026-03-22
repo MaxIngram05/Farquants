@@ -11,9 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://ch4jhp3cus5b" path="res://assets/tiles/french_onion_tilemap.png" id="5_wx8f7"]
 [ext_resource type="Texture2D" uid="uid://uxdq0cd52y4e" path="res://assets/tiles/green_onion_tilemap.png" id="6_1a35t"]
 [ext_resource type="PackedScene" uid="uid://deyg7cr3srxpy" path="res://scenes/Environment/SlowArea.tscn" id="6_mnm7h"]
-[ext_resource type="PackedScene" path="res://scenes/Environment/FireRising.tscn" id="12_lbh5e"]
+[ext_resource type="PackedScene" uid="uid://b5ahubb2qb2uo" path="res://scenes/EnemyScence/mosquito.tscn" id="12_lbh5e"]
 [ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="13_wx8f7"]
 [ext_resource type="PackedScene" uid="uid://dkjf84oq0a23l" path="res://scenes/sign.tscn" id="14_1a35t"]
+[ext_resource type="PackedScene" path="res://scenes/Environment/FireRising.tscn" id="14_xgyb2"]
 [ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/NPCs/Donkey.tscn" id="15_1eewf"]
 [ext_resource type="PackedScene" uid="uid://cbggl6820xwc3" path="res://scenes/NPCs/PussInBoots.tscn" id="16_d7lnh"]
 [ext_resource type="PackedScene" uid="uid://c47warooiqwtc" path="res://scenes/NPCs/Rumpelstilskin.tscn" id="17_d7lnh"]
@@ -298,6 +299,12 @@ tile_set = SubResource("TileSet_3dryh")
 z_index = 100
 tile_set = SubResource("TileSet_3dryh")
 
+[node name="BloomingOnion" parent="TileMap" unique_id=1953261989 instance=ExtResource("13_wx8f7")]
+position = Vector2(-376, -3096)
+
+[node name="Mosquito" parent="TileMap" unique_id=330798028 instance=ExtResource("12_lbh5e")]
+position = Vector2(-42, -2707)
+
 [node name="Platforms" type="Node" parent="." unique_id=1372047974]
 
 [node name="Killzone" parent="." unique_id=488587044 instance=ExtResource("3_1mwru")]
@@ -370,13 +377,10 @@ scale = Vector2(0.8, 1)
 position = Vector2(-216, -506)
 scale = Vector2(0.8, 1)
 
-[node name="FireRising" parent="." unique_id=62416062 instance=ExtResource("12_lbh5e")]
+[node name="FireRising" parent="." unique_id=62416062 instance=ExtResource("14_xgyb2")]
 position = Vector2(-223, -3519)
 rise_speed = 10.0
 PLAYER_START_POSITION = Vector2(-398, -3650)
-
-[node name="BloomingOnion" parent="." unique_id=1953261989 instance=ExtResource("13_wx8f7")]
-position = Vector2(-298, -2155)
 
 [node name="BloomingOnion2" parent="." unique_id=108369746 instance=ExtResource("13_wx8f7")]
 position = Vector2(-128, -2378)
@@ -403,3 +407,27 @@ autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=706822188]
 stream = ExtResource("19_xgyb2")
+
+[node name="Mosquito" parent="." unique_id=577016794 instance=ExtResource("12_lbh5e")]
+position = Vector2(-372, -830)
+
+[node name="Mosquito2" parent="." unique_id=36630518 instance=ExtResource("12_lbh5e")]
+position = Vector2(-401, -1077)
+
+[node name="Mosquito3" parent="." unique_id=730259290 instance=ExtResource("12_lbh5e")]
+position = Vector2(-34, -1564)
+
+[node name="Mosquito4" parent="." unique_id=411477640 instance=ExtResource("12_lbh5e")]
+position = Vector2(-389, -1808)
+
+[node name="BloomingOnion3" parent="." unique_id=1050151624 instance=ExtResource("13_wx8f7")]
+position = Vector2(-370, -2156)
+
+[node name="BloomingOnion" parent="." unique_id=1383651774 instance=ExtResource("13_wx8f7")]
+position = Vector2(-330, -2556)
+
+[node name="BloomingOnion4" parent="." unique_id=833502834 instance=ExtResource("13_wx8f7")]
+position = Vector2(-380, -2747)
+
+[node name="BloomingOnion5" parent="." unique_id=152343264 instance=ExtResource("13_wx8f7")]
+position = Vector2(-49, -3101)
