@@ -1,0 +1,1 @@
+fire assets https://devkidd.itch.io/pixel-fire-asset-pack-2
