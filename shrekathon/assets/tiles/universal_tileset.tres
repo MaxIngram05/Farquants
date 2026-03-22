@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3 uid="uid://c8osevubxh8r0"]
+[gd_resource type="TileSet" format=3 uid="uid://douibyp7ai6c2"]
 
 [ext_resource type="Texture2D" uid="uid://uxdq0cd52y4e" path="res://assets/tiles/green_onion_tilemap.png" id="1_gbs1k"]
 [ext_resource type="Texture2D" uid="uid://ch4jhp3cus5b" path="res://assets/tiles/french_onion_tilemap.png" id="2_xax1a"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xaw26"]
 texture = ExtResource("1_gbs1k")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -325,7 +325,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4as06"]
 texture = ExtResource("2_xax1a")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -653,7 +653,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2jtd"]
 texture = ExtResource("3_hnu42")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -981,7 +981,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hnu42"]
 texture = ExtResource("4_xax1a")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
