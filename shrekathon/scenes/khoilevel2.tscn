@@ -1,12 +1,12 @@
-[gd_scene format=4 uid="uid://d0btcaavempkn"]
+[gd_scene format=4 uid="uid://bqaydjackeefb"]
 
 [ext_resource type="Script" uid="uid://bd07x6ov53h5p" path="res://placeholders/Scripts/game_manager.gd" id="1_sn2ec"]
 [ext_resource type="Texture2D" uid="uid://bietq3lprrvcv" path="res://placeholders/Assets/sprites/world_tileset.png" id="2_vi07l"]
 [ext_resource type="PackedScene" uid="uid://bm3x8y2k74twl" path="res://placeholders/Scenes/killzone.tscn" id="3_d0dqq"]
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="4_kwefu"]
-[ext_resource type="PackedScene" uid="uid://ck8f4utovcjj2" path="res://scenes/camera_2d.tscn" id="5_fynlg"]
+[ext_resource type="PackedScene" path="res://scenes/camera_2d.tscn" id="5_fynlg"]
 [ext_resource type="PackedScene" uid="uid://1s02pse0jobi" path="res://placeholders/Scenes/slime.tscn" id="6_evbdr"]
-[ext_resource type="PackedScene" uid="uid://doxf486h0ivfh" path="res://scenes/Environment/FireRising.tscn" id="7_vi07l"]
+[ext_resource type="PackedScene" uid="uid://bpsh32b0vduo6" path="res://scenes/Environment/FireRising.tscn" id="7_vi07l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_vi07l")
@@ -359,6 +359,6 @@ position = Vector2(-120, -157)
 position = Vector2(-394, -524)
 
 [node name="FireRising" parent="." unique_id=62416062 instance=ExtResource("7_vi07l")]
-position = Vector2(-223, -4422)
+position = Vector2(-216, -4426)
 rise_speed = 10.0
-PLAYER_START_POSITION = Vector2(-250, -4700)
+PLAYER_START_POSITION = Vector2(-200, -4700)
