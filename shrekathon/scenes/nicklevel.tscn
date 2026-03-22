@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cc5ftcf7r0jcj"]
+[gd_scene format=4 uid="uid://da2lqe21qov6w"]
 
 [ext_resource type="Script" uid="uid://bd07x6ov53h5p" path="res://placeholders/Scripts/game_manager.gd" id="1_mnm7h"]
 [ext_resource type="Texture2D" uid="uid://bietq3lprrvcv" path="res://placeholders/Assets/sprites/world_tileset.png" id="2_sr4vm"]
@@ -7,12 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="4_g7f1s"]
 [ext_resource type="Texture2D" uid="uid://cenw0md5l4v1x" path="res://assets/tiles/desert_tilemap (1).png" id="4_lbh5e"]
 [ext_resource type="PackedScene" uid="uid://d1pry0r2qofmv" path="res://scenes/EnemyScence/GingerBreadMan.tscn" id="4_sr4vm"]
-[ext_resource type="PackedScene" uid="uid://ck8f4utovcjj2" path="res://scenes/camera_2d.tscn" id="5_43g38"]
+[ext_resource type="PackedScene" path="res://scenes/camera_2d.tscn" id="5_43g38"]
 [ext_resource type="Texture2D" uid="uid://ch4jhp3cus5b" path="res://assets/tiles/french_onion_tilemap.png" id="5_wx8f7"]
 [ext_resource type="Texture2D" uid="uid://uxdq0cd52y4e" path="res://assets/tiles/green_onion_tilemap.png" id="6_1a35t"]
-[ext_resource type="PackedScene" path="res://scenes/Environment/SlowArea.tscn" id="6_mnm7h"]
+[ext_resource type="PackedScene" uid="uid://deyg7cr3srxpy" path="res://scenes/Environment/SlowArea.tscn" id="6_mnm7h"]
 [ext_resource type="PackedScene" path="res://scenes/Environment/FireRising.tscn" id="12_lbh5e"]
 [ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="13_wx8f7"]
+[ext_resource type="PackedScene" uid="uid://dkjf84oq0a23l" path="res://scenes/sign.tscn" id="14_1a35t"]
+[ext_resource type="PackedScene" uid="uid://b3mrdlsbcleu8" path="res://scenes/NPCs/Donkey.tscn" id="15_1eewf"]
+[ext_resource type="PackedScene" uid="uid://cbggl6820xwc3" path="res://scenes/NPCs/PussInBoots.tscn" id="16_d7lnh"]
+[ext_resource type="PackedScene" uid="uid://c47warooiqwtc" path="res://scenes/NPCs/Rumpelstilskin.tscn" id="17_d7lnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_sr4vm")
@@ -374,3 +378,19 @@ position = Vector2(-298, -2155)
 
 [node name="BloomingOnion2" parent="." unique_id=108369746 instance=ExtResource("13_wx8f7")]
 position = Vector2(-128, -2378)
+
+[node name="Sign" parent="." unique_id=83727418 instance=ExtResource("14_1a35t")]
+position = Vector2(-211, 258)
+scale = Vector2(0.3, 0.3)
+
+[node name="Donkey" parent="." unique_id=1801920957 instance=ExtResource("15_1eewf")]
+position = Vector2(-133, -663)
+scale = Vector2(0.2, 0.2)
+
+[node name="PussInBoots" parent="." unique_id=428383905 instance=ExtResource("16_d7lnh")]
+position = Vector2(-125.00001, -1991)
+scale = Vector2(0.3, 0.3)
+
+[node name="Rumpelstilskin" parent="." unique_id=937262162 instance=ExtResource("17_d7lnh")]
+position = Vector2(-104, -3257)
+scale = Vector2(0.4, 0.4)
