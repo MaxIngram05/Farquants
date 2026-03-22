@@ -9,9 +9,12 @@ const WALL_JUMP_VELOCITY_Y = 20.0
 const WALL_JUMP_VELOCITY_X = 20.0
 const MAX_CHARGE_TIME = 1.0
 const CHARGE_JUMP_MULTIPLIER = 2.5
+const SUPER_CHARGE_TIME = 1.0
+const SUPER_JUMP_MULTIPLIER = 1.4142  # sqrt(2) — doubles the height
 
 var charge_time := 0.0
 var is_charging := false
+var is_super_charging := false
 var is_talking = false
 var charge_direction := 0.0
 var jump_direction := 0.0
@@ -49,17 +52,17 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#people interaction
-	
-	
-	
-	
+
+
+
+
 	if UnlockSystem.can_move:
 		# Apply gravity
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-		
+
 		dir = 0;
-		
+
 		if is_on_floor():
 			can_vert_dash = false
 			vertical_jumps = 1
@@ -68,7 +71,7 @@ func _physics_process(delta: float) -> void:
 			dir = (float(right) - float(left)) * speed_scale
 			if !is_dashing and !can_horz_dash:
 				can_horz_dash = true
-			
+
 		if !is_on_floor() and is_jumping:
 			if right_wall.is_colliding() and jump_direction > 0:
 				velocity.x -= WALL_JUMP_VELOCITY_X
@@ -82,18 +85,25 @@ func _physics_process(delta: float) -> void:
 		# Charging logic (hold Space)
 		if !is_dashing:
 			if Input.is_action_pressed("ui_accept") and is_on_floor():
-				is_charging = true
-				charge_time = min(charge_time + delta, MAX_CHARGE_TIME)
-				# Capture A/D direction while charging
 				charge_direction = dir
-				# Lock horizontal movement while charging
 				velocity.x = 0.0
-			elif (Input.is_action_just_released("ui_accept") and is_charging):
-				# Release: launch with charged jump
-				var charge_ratio = charge_time / MAX_CHARGE_TIME
-				velocity.y = JUMP_VELOCITY * (1.0 + charge_ratio * (CHARGE_JUMP_MULTIPLIER - 1.0))
-				velocity.x = charge_direction * SPEED * (1.0 + charge_ratio)
+				if charge_time < MAX_CHARGE_TIME:
+					is_charging = true
+					charge_time = min(charge_time + delta, MAX_CHARGE_TIME)
+				elif UnlockSystem.obtainedJumpExtend:
+					# Max charge reached — extend into super charge
+					is_super_charging = true
+			elif (Input.is_action_just_released("ui_accept") and (is_charging or is_super_charging)):
+				# Release: launch with charged or super jump
+				var base_velocity = JUMP_VELOCITY * CHARGE_JUMP_MULTIPLIER
+				if is_super_charging:
+					velocity.y = base_velocity * SUPER_JUMP_MULTIPLIER
+				else:
+					var charge_ratio = charge_time / MAX_CHARGE_TIME
+					velocity.y = JUMP_VELOCITY * (1.0 + charge_ratio * (CHARGE_JUMP_MULTIPLIER - 1.0))
+				velocity.x = charge_direction * SPEED * (1.0 + charge_time / MAX_CHARGE_TIME)
 				is_charging = false
+				is_super_charging = false
 				jump_direction = charge_direction
 				is_jumping = true
 				charge_time = 0.0
@@ -105,7 +115,7 @@ func _physics_process(delta: float) -> void:
 					velocity.x = dir * SPEED
 				else:
 					velocity.x = move_toward(velocity.x, charge_direction, SPEED)
-		
+
 		ground_pound()
 		horizontal_dash(delta)
 		veritcal_dash(delta)
@@ -117,9 +127,8 @@ func _physics_process(delta: float) -> void:
 		# Animation and sprite flip
 			# Animation logic - put this BEFORE move_and_slide()
 		# Animation logic
-		if is_charging:
-			# Use "idle" if you haven't made a "charging" animation yet
-			anim.play("charging") 
+		if is_charging or is_groundpounding:
+			anim.play("charging")
 		elif not is_on_floor():
 			# Use "idle" or a specific "jump" frame if you have one
 			anim.play("jumping")
@@ -134,7 +143,7 @@ func _physics_process(delta: float) -> void:
 
 func horizontal_dash(delta: float) -> void:
 	var input_dir:float = Input.get_axis("left", "right")
-	
+
 	if input_dir != 0:
 		horizontal_dash_direction.x = input_dir
 	if can_horz_dash and UnlockSystem.obtainedHorizontalDash and Input.is_action_just_pressed("horizontal_dash"):
@@ -143,7 +152,7 @@ func horizontal_dash(delta: float) -> void:
 		is_dashing = true
 		dash_timer = DASH_TIME
 		velocity = horizontal_dash_direction * DASH_AMOUNT
-		
+
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
@@ -164,6 +173,8 @@ func veritcal_dash(delta: float) -> void:
 
 
 func ground_pound() -> void:
+	if not UnlockSystem.obtainedGroundPound:
+		return
 	if not is_on_floor() and not is_groundpounding and Input.is_key_pressed(KEY_S):
 		is_groundpounding = true
 		velocity.x = 0.0
@@ -189,7 +200,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		print("target_mirror is: ", str(target_mirror))
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"): 
+	if event.is_action_pressed("interact"):
 		print("interact pressed!")
 		if target_mirror != null:
 			print("Interacting with mirror!")
@@ -197,20 +208,20 @@ func _input(event: InputEvent) -> void:
 			trigger_mirror_dialogue()
 
 func trigger_mirror_dialogue():
-	if is_talking: return 
+	if is_talking: return
 	is_talking = true
-	
+
 	var dialogue_instance = DIALOGUE_SCENE.instantiate()
-	
+
 	dialogue_instance.tree_exited.connect(func():
 		is_talking = false
 		UnlockSystem.can_move = true
 		print("Dialogue finished! Shrek is free.")
 		)
-	
-	add_child(dialogue_instance) 
-	
+
+	add_child(dialogue_instance)
+
 	# Position it 100 pixels above the player's center
-	dialogue_instance.position = Vector2(0, -100) 
-	
+	dialogue_instance.position = Vector2(0, -100)
+
 	dialogue_instance.show_text()

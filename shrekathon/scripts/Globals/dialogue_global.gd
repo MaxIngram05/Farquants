@@ -18,7 +18,7 @@ var fiona_dialogue = 0
 var donkey_choice_text = 0
 var puss_choice_text = 0
 var rumpel_choice_text: Array[String] = ["Sign The Contract", "Refuse to Sign"]
-var mirror_choice_text: Array[String] = ["Fine", "No"]
+var mirror_choice_text: Array[String] = ["Fine, I'll learn", "No"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
