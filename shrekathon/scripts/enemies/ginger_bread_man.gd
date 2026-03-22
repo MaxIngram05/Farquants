@@ -23,6 +23,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	movement_timer += delta
+	scale.x = current_direction * 0.5
 	
 	# Every movement_interval seconds, update direction and speed.
 	if movement_timer >= movement_interval:
