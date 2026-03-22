@@ -333,7 +333,7 @@ var rumpel_dialogue_one = [
 	},
 	{
 		"icon": icons["rumpel"],
-		"text": "Which is where I come in! I have a contract Shrek! Sign it and I'll grant you immeasurable power",
+		"text": "Which is where I come in! I have a contract Shrek! Sign it and I'll grant you immeasurable power!",
 		"audio": audios["rumpel"]
 	},
 	{
@@ -400,46 +400,55 @@ var rumpel_dialogue_no = [
 ]
 
 var fiona_dialogue = [
+	#0
 	{
 		"icon": icons["fiona"],
 		"text": "Shrek! You made it!",
 		"audio": audios["fiona"]
 	},
+	#1
 	{
 		"icon": icons["farquaad"],
 		"text": "THE FILTHY OGRE MADE IT!",
 		"audio": audios["farquaad"]
 	},
+	#2
 	{
 		"icon": icons["shrek"],
 		"text": "Come on Fiona! I'll take down [color=red]Farquaad[/color] and then let's go home",
 		"audio": audios["shrek"]
 	},
+	#3
 	{
 		"icon": icons["fiona"],
 		"text": "Shrek, I...",
 		"audio": audios["fiona"]
 	},
+	#4
 	{
 		"icon": icons["fiona"],
 		"text": "<reaction on how good you have been>",
 		"audio": audios["fiona"]
 	},
+	#5
 	{
-		"icon": icons["shrek"],
+		"icon": icons["fiona"],
 		"text": "<second reaction on how good you have been>",
 		"audio": audios["fiona"]
 	},
+	#6
 	{
-		"icon": icons["shrek"],
+		"icon": icons["fiona"],
 		"text": "<third reaction on how good you have been>",
 		"audio": audios["fiona"]
 	},
+	#7
 	{
 		"icon": icons["farquaad"],
 		"text": "<reaction on how good you have been>",
 		"audio": audios["farquaad"]
 	},
+	#8
 	{
 		"icon": icons["farquaad"],
 		"text": "<second reaction on how good you have been>",
@@ -473,11 +482,25 @@ func make_talking_false():
 func prepare_fiona_ending():
 	is_fiona_talking = true
 	if UnlockSystem.is_good_ending():
-		pass
+		fiona_dialogue[4]["text"] = "I saw your voyage upwards and how much of a [color=green]saint[/color] you were!"
+		fiona_dialogue[5]["text"] = "Eating with Donkey, petting Puss and seeing Rumpel's good side!"
+		fiona_dialogue[6]["text"] = "I knew I married the right man!"
+		fiona_dialogue[7]["text"] = "CURSES! I'll never hand over my bethrothed!"
+		fiona_dialogue[8]["text"] = "You swoop in, punch Farquaad and rescued your beloved Fiona."
+		fiona_dialogue[8]["audio"] = audios["shrek"]
 	if UnlockSystem.is_bad_ending():
-		pass
+		fiona_dialogue[4]["text"] = "You were awful to everyone! You threw Donkey's food and hurt Puss!"
+		fiona_dialogue[5]["text"] = "And Rumpelstilskin is trying to be good!"
+		fiona_dialogue[6]["text"] = "This isn't the ogre I fell in love with you. [color=red]I don't want to marry you anymore[/color]."
+		fiona_dialogue[7]["text"] = "[wave]Welllllll...[/wave] I find this evil side of you quite... [wave]attractive[/wave], ogre."
+		fiona_dialogue[8]["text"] = "perhaps I picked the wrong person to marry and rule the world with!"
 	else:
-		pass
+		fiona_dialogue[4]["text"] = "You came all this way to save me!"
+		fiona_dialogue[5]["text"] = "Maybe you made some mistakes on the way here, but I still love you."
+		fiona_dialogue[6]["text"] = "You just need to work on your anger managment for now. Now, let's beat Farquaad!"
+		fiona_dialogue[7]["text"] = "STOP YOU MONSTERS! I AM THE NEW RULER OF THIS KINGDOM! [shake]KNEEL BEFORE ME[/shake]"
+		fiona_dialogue[8]["text"] = "You swoop in, punch Farquaad and rescued your beloved Fiona. No romantic spark happens on the way home."
+		fiona_dialogue[8]["audio"] = audios["shrek"]
 	current_text = fiona_dialogue
 
 func prepare_mirror_dialogue():
