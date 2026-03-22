@@ -49,4 +49,3 @@ func is_bad_ending() -> bool:
 #for neither
 func is_neutral_ending() -> bool:
 	return not is_good_ending() and not is_bad_ending()
-

@@ -17,8 +17,8 @@ func _process(delta: float) -> void:
 		choice_one_button.text = "Eat the Waffles"
 		choice_two_button.text = "Destroy the Waffles"
 	if DialogueGlobal.is_puss_talking:
-		choice_one_button.text = "kitty"
-		choice_two_button.text = "bad kitty"
+		choice_one_button.text = "Pet the kitty"
+		choice_two_button.text = "Pour water on the kitty"
 	if DialogueGlobal.is_rumpel_talking:
 		choice_one_button.text = "Sign The Contract"
 		choice_two_button.text = "Refuse to Sign"
@@ -27,9 +27,9 @@ func _on_choice_one_button_pressed() -> void:
 	if DialogueGlobal.is_mirror_talking:
 		DialogueGlobal.shrek_yes_mirror()
 	if DialogueGlobal.is_donkey_talking:
-		pass
+		DialogueGlobal.shrek_yes_donkey()
 	if DialogueGlobal.is_puss_talking:
-		pass
+		DialogueGlobal.shrek_yes_puss()
 	if DialogueGlobal.is_rumpel_talking:
 		DialogueGlobal.shrek_yes_rumpel()
 	queue_free()
@@ -39,9 +39,9 @@ func _on_choice_two_button_pressed() -> void:
 	if DialogueGlobal.is_mirror_talking:
 		DialogueGlobal.shrek_no_mirror()
 	if DialogueGlobal.is_donkey_talking:
-		pass
+		DialogueGlobal.shrek_no_donkey()
 	if DialogueGlobal.is_puss_talking:
-		pass
+		DialogueGlobal.shrek_no_puss()
 	if DialogueGlobal.is_rumpel_talking:
 		DialogueGlobal.shrek_no_rumpel()
 	queue_free()
