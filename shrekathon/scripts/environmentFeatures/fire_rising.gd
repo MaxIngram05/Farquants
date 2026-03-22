@@ -2,6 +2,8 @@ extends Node2D
 
 @export var rise_speed: float = 60.0
 @export var PLAYER_START_POSITION := Vector2(-200, 100)
+@onready var music_player = $"../AudioStreamPlayer"
+@onready var boss_player = $"../AudioStreamPlayer2"
 
 var is_active: bool = false
 var starting_position: Vector2
@@ -45,7 +47,8 @@ func _process(delta: float) -> void:
 
 func _on_trigger_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Shrek(player)":
-
+		music_player.stop()
+		boss_player.play()
 		start_fire()
 		$TriggerArea2D/CollisionShape2D.set_deferred("disabled", true)
 		print("start fire")
