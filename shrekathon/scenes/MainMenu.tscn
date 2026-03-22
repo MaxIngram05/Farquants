@@ -21,6 +21,35 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 2)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../PlayHisGameLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-415, 295)]
+}
+
+[sub_resource type="Animation" id="Animation_826wr"]
+resource_name = "label_animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PlayHisGameLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-415, 350), Vector2(-415, 295), Vector2(-415, 350)]
+}
 
 [sub_resource type="Animation" id="Animation_ow34m"]
 resource_name = "max_animation"
@@ -42,6 +71,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l72w3"]
 _data = {
 &"RESET": SubResource("Animation_2wh52"),
+&"label_animation": SubResource("Animation_826wr"),
 &"max_animation": SubResource("Animation_ow34m")
 }
 
@@ -104,13 +134,33 @@ vertical_alignment = 1
 
 [node name="SubtitleLabel" type="RichTextLabel" parent="." unique_id=2117155278]
 layout_mode = 0
-offset_top = 83.0
-offset_right = 1286.0
-offset_bottom = 253.0
+offset_left = 5.0
+offset_top = 85.0
+offset_right = 1291.0
+offset_bottom = 255.0
 theme_override_fonts/normal_font = ExtResource("4_ow34m")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Reach to the top to find [wave]FIONA[/wave]!!!"
+text = "There is [wave]FIONA[/wave] at the top!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayHisGameLabel" type="RichTextLabel" parent="." unique_id=716938816]
+layout_mode = 0
+offset_left = -415.0
+offset_top = 295.0
+offset_right = 871.0
+offset_bottom = 525.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_ow34m")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Would you like to
+play his game?
+I
+I
+V"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -118,6 +168,11 @@ vertical_alignment = 1
 root_node = NodePath("../MaxButton/MaxPlaceholder")
 libraries/ = SubResource("AnimationLibrary_l72w3")
 autoplay = &"max_animation"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=702976610]
+root_node = NodePath("../MaxButton/MaxPlaceholder")
+libraries/ = SubResource("AnimationLibrary_l72w3")
+autoplay = &"label_animation"
 
 [node name="MaxSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1139767579]
 stream = ExtResource("4_ucygd")
@@ -135,6 +190,17 @@ theme = SubResource("Theme_ucygd")
 position = Vector2(116, 258)
 scale = Vector2(1, 2)
 texture = ExtResource("2_2wh52")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1437102308]
+z_index = -40
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.52113897, 0.45875782, 0.33484617, 1)
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

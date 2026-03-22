@@ -1,17 +1,126 @@
 [gd_scene format=3 uid="uid://dkjf84oq0a23l"]
 
 [ext_resource type="Script" uid="uid://eq5wwgdnpc1b" path="res://scripts/sign.gd" id="1_kd50q"]
-[ext_resource type="Texture2D" uid="uid://b1xr7866tijio" path="res://icon.svg" id="1_shbub"]
+[ext_resource type="Texture2D" uid="uid://lpk63utvif52" path="res://assets/jocMirror_spritesheet.png" id="2_kd50q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd50q"]
-size = Vector2(113, 65)
+size = Vector2(218, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yyji"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge2pc"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkam6"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnnkw"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4irdt"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mifvb"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng4at"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74kco"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_120fh"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v2ih"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ajg4"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rstv1"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btl6d"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flqgk"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(300, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_polbj"]
+atlas = ExtResource("2_kd50q")
+region = Rect2(400, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2aeal"]
+animations = [{
+"frames": [{
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_8yyji")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_ge2pc")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_qkam6")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_pnnkw")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_4irdt")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_mifvb")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_ng4at")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_74kco")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_120fh")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_7v2ih")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_1ajg4")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_rstv1")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_btl6d")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_flqgk")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_polbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
 
 [node name="Sign" type="Area2D" unique_id=83727418]
 script = ExtResource("1_kd50q")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861466382]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_shbub")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=797190]
 anchors_preset = 8
@@ -20,15 +129,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -87.0
-offset_top = -40.0
+offset_top = -71.0
 offset_right = 87.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Press E to Talk To Me"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1549598234]
-position = Vector2(0.5, -15.5)
 shape = SubResource("RectangleShape2D_kd50q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1122857645]
+sprite_frames = SubResource("SpriteFrames_2aeal")
+autoplay = "default"
+frame = 11
+frame_progress = 0.4268176
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
