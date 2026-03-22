@@ -13,6 +13,8 @@ func _ready() -> void:
 	current_dialogue_index = 0
 	rich_text_label.visible_ratio = 0
 	show_text()
+	if UnlockSystem.isEndingMenu:
+		print("is ending!")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
