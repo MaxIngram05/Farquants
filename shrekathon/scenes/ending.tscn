@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ca8343b0npusq"]
 
 [ext_resource type="Script" uid="uid://cuvdnqrot3lca" path="res://scripts/ending.gd" id="1_fyrdv"]
+[ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="2_e6d8c"]
 [ext_resource type="Texture2D" uid="uid://ce6k3sph4yla5" path="res://placeholders/Assets/sprites/shrek_jump.webp" id="2_t1k4y"]
 [ext_resource type="Texture2D" uid="uid://bsa312qqqfo1x" path="res://placeholders/Assets/sprites/shrek_dash.webp" id="3_3v48n"]
 [ext_resource type="Texture2D" uid="uid://wkh0kdcig7l1" path="res://placeholders/Assets/sprites/shrek_dash_left.png" id="4_75aq2"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://diuy8hsalrp0g" path="res://placeholders/Assets/sprites/shrek_walking_right.png" id="7_jc8es"]
 [ext_resource type="Texture2D" uid="uid://bb4xsp2hkr7er" path="res://assets/farquaad.png" id="8_3v48n"]
 [ext_resource type="Texture2D" uid="uid://bt7pp7hnnvhq8" path="res://assets/fiona_bounce_1.png" id="9_75aq2"]
+[ext_resource type="Theme" uid="uid://d3rvllsw5vflr" path="res://assets/button_theeme.tres" id="10_o5uye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rki13"]
 atlas = ExtResource("2_t1k4y")
@@ -648,6 +650,8 @@ offset_left = -636.0
 offset_right = 649.0
 offset_bottom = 94.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_e6d8c")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "ENDING SHOULD SHOW HERE"
 horizontal_alignment = 1
@@ -668,3 +672,17 @@ autoplay = "default"
 position = Vector2(881, 482)
 sprite_frames = SubResource("SpriteFrames_7g6bj")
 autoplay = "default"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1138171680]
+position = Vector2(638, 478)
+
+[node name="Button" type="Button" parent="." unique_id=1975600602]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 778.0
+offset_right = 870.0
+offset_bottom = 836.0
+theme = ExtResource("10_o5uye")
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
