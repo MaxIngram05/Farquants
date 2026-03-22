@@ -2,6 +2,8 @@ extends Node
 
 var resultList: Array[bool] = [false, false, false]
 
+var isEndingMenu = false
+
 var obtainedHorizontalDash: bool:
 	get:
 		return resultList[0]
