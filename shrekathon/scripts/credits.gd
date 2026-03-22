@@ -42,6 +42,11 @@ func _ready() -> void:
 	for name in ["Jun Lee", "Tess Leblanc"]:
 		_add_label(vbox, name, font, 22, false)
 
+	_add_spacer(vbox, 32)
+	_add_label(vbox, "External Resources", font, 28, true)
+	_add_spacer(vbox, 8)
+	_add_label(vbox, "Kayley Zaidi", font, 22, false)
+
 	_add_spacer(vbox, 60)
 
 	var back_button = Button.new()
