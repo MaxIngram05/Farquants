@@ -207,6 +207,7 @@ color = Color(0.52113897, 0.45875782, 0.33484617, 1)
 stream = ExtResource("7_ucygd")
 volume_db = 9.72
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
