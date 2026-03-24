@@ -12,7 +12,7 @@ public partial class Mosquito : CharacterBody2D
 	public bool activated = false;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 	public bool shaking = true;
-	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
