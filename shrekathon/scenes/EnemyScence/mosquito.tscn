@@ -54,6 +54,7 @@ frame = 1
 frame_progress = 0.5329203
 
 [node name="Parkway Gardens" type="Area2D" parent="." unique_id=101501012]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parkway Gardens" unique_id=1199813257]
 shape = SubResource("CircleShape2D_3ahxw")
