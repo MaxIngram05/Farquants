@@ -18,7 +18,7 @@ var audios = {
 	"rumpel": preload("res://audio/longer_audio/rumpy_dialogue_longer+louder.mp3"),
 	"mirror": preload("res://placeholders/Assets/sounds/talking_synth.ogg"),
 	"fiona": preload("res://audio/longer_audio/fiona_dialogue.mp3"),
-	"farquaad": preload("res://audio/longer_audio/fiona_dialogue.mp3"),
+	"farquaad": preload("res://audio/longer_audio/farquaad_dialogue.mp3"),
 	"nothing": null
 }
 
@@ -160,17 +160,17 @@ var donkey_dialogue_yes = [
 	{
 		"icon": icons["nothing"],
 		"text": "You ate the Magic Waffles. They were delicious but you can't let Donkey know that.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["nothing"],
-		"text": "The magic enters your body and you gain the [color=green]WAFFLE DASH[/color]",
-		"audio": audios["shrek"]
+		"text": "The magic enters your body and you gain the [color=green]WAFFLE DASH[/color].",
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["nothing"],
 		"text": "Press the Shift key to dash horizontally.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["donkey"],
@@ -178,9 +178,9 @@ var donkey_dialogue_yes = [
 		"audio": audios["donkey"]
 	},
 	{
-		"icon": icons["donkey"],
+		"icon": icons["shrek"],
 		"text": "Fine, thank you Donkey. I'll be on my way now.",
-		"audio": audios["donkey"]
+		"audio": audios["shrek"]
 	}
 ]
 
@@ -188,7 +188,7 @@ var donkey_dialogue_no = [
 	{
 		"icon": icons["nothing"],
 		"text": "[color=red]You threw away Magic Waffles[/color]. The thought of eating them insulted you.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["donkey"],
@@ -220,7 +220,7 @@ var puss_dialogue_one = [
 	},
 	{
 		"icon": icons["puss"],
-		"text": "I might have something for you, I've learned some magic that might help you.",
+		"text": "I might have something for you. I've learned some magic that might help.",
 		"audio": audios["puss"]
 	},
 	{
@@ -254,17 +254,17 @@ var puss_dialogue_yes = [
 	{
 		"icon": icons["nothing"],
 		"text": "Puss throws a magic bean into your mouth.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["nothing"],
 		"text": "You gained the [color=green] CAT DASH[/color].",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["nothing"],
 		"text": "Press the space bar while up in the air to shoot up vertically.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["shrek"],
@@ -286,7 +286,7 @@ var puss_dialogue_no = [
 	{
 		"icon": icons["nothing"],
 		"text": "[color=red]You ignore Puss' request and splash him with water[/color].",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["puss"],
@@ -358,16 +358,16 @@ var rumpel_dialogue_yes = [
 	{
 		"icon": icons["nothing"],
 		"text": "You signed the contract. You are flushed with a new power. You gained the SUPER JUMP.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["nothing"],
 		"text": "You may charge your jump even longer with the Space bar to get an even better boost.",
-		"audio": audios["shrek"]
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["shrek"],
-		"text": "Hmph. I supposed you were actually useful for once.",
+		"text": "Hmph. I suppose you were actually useful for once.",
 		"audio": audios["shrek"]
 	},
 	{
@@ -389,8 +389,8 @@ var rumpel_dialogue_no = [
 	},
 	{
 		"icon": icons["nothing"],
-		"text": "[color=red]You hit Rumpelstilskin. It feels good getting a physcial payback on him.[/color]",
-		"audio": audios["shrek"]
+		"text": "[color=red]You hit Rumpelstilskin. It feels good getting a physical payback on him.[/color]",
+		"audio": audios["nothing"]
 	},
 	{
 		"icon": icons["shrek"],
@@ -415,7 +415,7 @@ var fiona_dialogue = [
 	#2
 	{
 		"icon": icons["shrek"],
-		"text": "Come on Fiona! I'll take down [color=red]Farquaad[/color] and then let's go home",
+		"text": "Come on Fiona! I'll take down [color=red]Farquaad[/color] and then we can go home.",
 		"audio": audios["shrek"]
 	},
 	#3
@@ -450,9 +450,9 @@ var fiona_dialogue = [
 	},
 	#8
 	{
-		"icon": icons["farquaad"],
+		"icon": icons["nothing"],
 		"text": "<second reaction on how good you have been>",
-		"audio": audios["farquaad"]
+		"audio": audios["nothing"]
 	},
 ]
 
@@ -487,20 +487,21 @@ func prepare_fiona_ending():
 		fiona_dialogue[6]["text"] = "I knew I married the right man!"
 		fiona_dialogue[7]["text"] = "CURSES! I'll never hand over my bethrothed!"
 		fiona_dialogue[8]["text"] = "You swoop in, punch Farquaad and rescued your beloved Fiona."
-		fiona_dialogue[8]["audio"] = audios["shrek"]
+		fiona_dialogue[8]["audio"] = audios["nothing"]
 	if UnlockSystem.is_bad_ending():
 		fiona_dialogue[4]["text"] = "You were awful to everyone! You threw Donkey's food and hurt Puss!"
-		fiona_dialogue[5]["text"] = "And Rumpelstilskin is trying to be good!"
-		fiona_dialogue[6]["text"] = "This isn't the ogre I fell in love with you. [color=red]I don't want to marry you anymore[/color]."
-		fiona_dialogue[7]["text"] = "[wave]Welllllll...[/wave] I find this evil side of you quite... [wave]attractive[/wave], ogre."
-		fiona_dialogue[8]["text"] = "perhaps I picked the wrong person to marry and rule the world with!"
+		fiona_dialogue[5]["text"] = "And Rumpelstiltskin is trying to be good!"
+		fiona_dialogue[6]["text"] = "This isn't the ogre I fell in love with. [color=red]I don't want to marry you anymore[/color]."
+		fiona_dialogue[7]["text"] = "[wave]Welllllll...[/wave] I find this evil side of you quite... [wave]Attractive[/wave], ogre."
+		fiona_dialogue[8]["text"] = "Farquaad bites his lip and approaches for a kiss."
+		fiona_dialogue[8]["audio"] = audios["nothing"]
 	else:
 		fiona_dialogue[4]["text"] = "You came all this way to save me!"
-		fiona_dialogue[5]["text"] = "Maybe you made some mistakes on the way here, but I still love you."
+		fiona_dialogue[5]["text"] = "Maybe you made some mistakes on the way here, but I still believe in you."
 		fiona_dialogue[6]["text"] = "You just need to work on your anger managment for now. Now, let's beat Farquaad!"
-		fiona_dialogue[7]["text"] = "STOP YOU MONSTERS! I AM THE NEW RULER OF THIS KINGDOM! [shake]KNEEL BEFORE ME[/shake]"
-		fiona_dialogue[8]["text"] = "You swoop in, punch Farquaad and rescued your beloved Fiona. No romantic spark happens on the way home."
-		fiona_dialogue[8]["audio"] = audios["shrek"]
+		fiona_dialogue[7]["text"] = "STOP YOU MONSTERS! I AM THE NEW RULER OF THIS KINGDOM! [shake]KNEEL BEFORE ME![/shake]"
+		fiona_dialogue[8]["text"] = "You defeat Farquaad and save Fiona, but she doesn't have feelings for you."
+		fiona_dialogue[8]["audio"] = audios["nothing"]
 	current_text = fiona_dialogue
 
 func prepare_mirror_dialogue():

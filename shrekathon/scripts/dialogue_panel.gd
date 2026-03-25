@@ -32,9 +32,11 @@ func show_text():
 	var tween = create_tween()
 	var text_show_duration:float = current_text["text"].length() / 20
 	tween.tween_property(rich_text_label, "visible_ratio", 1, text_show_duration)
-	var sound_offset = audio_stream_player.stream.get_length() - text_show_duration
-	var sound_start = randf() * sound_offset
-	audio_stream_player.play(sound_start)
+	
+	if (audio_stream_player.stream != null):
+		var sound_offset = audio_stream_player.stream.get_length() - text_show_duration
+		var sound_start = randf() * sound_offset
+		audio_stream_player.play(sound_start)
 	tween.finished.connect(func() -> void:
 		audio_stream_player.stop()
 		can_advance_text = true
