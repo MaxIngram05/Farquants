@@ -486,9 +486,9 @@ func prepare_fiona_ending():
 		fiona_dialogue[5]["text"] = "Eating with Donkey, petting Puss and seeing Rumpel's good side!"
 		fiona_dialogue[6]["text"] = "I knew I married the right man!"
 		fiona_dialogue[7]["text"] = "CURSES! I'll never hand over my bethrothed!"
-		fiona_dialogue[8]["text"] = "You swoop in, punch Farquaad and rescued your beloved Fiona."
+		fiona_dialogue[8]["text"] = "You swoop in, defeat Farquaad and rescue your beloved Fiona."
 		fiona_dialogue[8]["audio"] = audios["nothing"]
-	if UnlockSystem.is_bad_ending():
+	elif UnlockSystem.is_bad_ending():
 		fiona_dialogue[4]["text"] = "You were awful to everyone! You threw Donkey's food and hurt Puss!"
 		fiona_dialogue[5]["text"] = "And Rumpelstiltskin is trying to be good!"
 		fiona_dialogue[6]["text"] = "This isn't the ogre I fell in love with. [color=red]I don't want to marry you anymore[/color]."

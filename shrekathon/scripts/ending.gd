@@ -41,7 +41,7 @@ func _on_dialogue_finished():
 	if UnlockSystem.is_good_ending():
 		var outcomeTween = create_tween()
 		outcomeTween.tween_property(outcome_image, "modulate:a", 1, 3)
-		ending_label.text = "You got the [color=green]GOOD ENDING[/color]! You were nice to everyone and gained all of the powers along the way! Fiona, madly in love, embraces you as a defeated Farquaad lies down on the ground. You have saved your love and the world."
+		ending_label.text = "You got the [color=green]GOOD ENDING[/color]! You were nice to everyone and gained all of the powers along the way! Fiona, madly in love, embraces you as a defeated Farquaad lies on the ground. You have saved your love and the kingdom."
 		button.text = "You Won. Return to Main Menu"
 	elif UnlockSystem.is_bad_ending():
 		var outcomeTween = create_tween()
@@ -49,7 +49,7 @@ func _on_dialogue_finished():
 		ending_label.text = "You got the [color=red]EVIL ENDING[/color]! You were rude to everyone in your path and gained no new powers while jumping. You lost your wife and instead marry the evil Lord Farquaad. Together, you rule the entire world. No one can stop this power couple!"
 		button.text = "You Won? Return to Main Menu"
 	else:
-		ending_label.text = "You got the NEUTRAL ENDING! You were rude to some and nice to others. Fiona seems grateful but unhappy with some of your actions. Perhaps if you were [color=green]nice to everyone[/color] then she'd give you a kiss!"
+		ending_label.text = "You got the NEUTRAL ENDING! You were rude to some and nice to others. Fiona seems grateful but unhappy with some of your actions. Perhaps if you were [color=green]nice to everyone[/color], then she'd give you a kiss!"
 		button.text = "You Won. Return to Main Menu"
 
 
