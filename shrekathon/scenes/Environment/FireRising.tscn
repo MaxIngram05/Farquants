@@ -130,7 +130,7 @@ script = ExtResource("1_aiq4f")
 position = Vector2(-243, -11)
 sprite_frames = SubResource("SpriteFrames_81xde")
 autoplay = "default"
-frame_progress = 0.94464296
+frame_progress = 0.6358577
 
 [node name="DamageArea2D" type="Area2D" parent="." unique_id=120130605]
 

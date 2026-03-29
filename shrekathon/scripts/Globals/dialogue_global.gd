@@ -3,7 +3,7 @@ extends Node
 var icons = {
 	"shrek": preload("res://assets/shrek_thumbnail.png"),
 	"donkey": preload("res://assets/sad-doney-sad-face2_compressed.png"),
-	"puss": preload("res://assets/pussy_thumbnail.png"),
+	"puss": preload("res://assets/puss_dialogue_image_54.png"),
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
 	"mirror": preload("res://assets/mirror_png_icon.png"),
 	"farquaad": preload("res://assets/farquad_thumbnail.png"),
@@ -22,7 +22,7 @@ var audios = {
 	"nothing": null
 }
 
-var current_text:= ["Hi!"]
+var current_text:= []
 
 
 var mirror_dialogue_one = [
@@ -493,14 +493,14 @@ func prepare_fiona_ending():
 		fiona_dialogue[5]["text"] = "And Rumpelstiltskin is trying to be good!"
 		fiona_dialogue[6]["text"] = "This isn't the ogre I fell in love with. [color=red]I don't want to marry you anymore[/color]."
 		fiona_dialogue[7]["text"] = "[wave]Welllllll...[/wave] I find this evil side of you quite... [wave]Attractive[/wave], ogre."
-		fiona_dialogue[8]["text"] = "Farquaad bites his lip and approaches for a kiss."
+		fiona_dialogue[8]["text"] = "Farquaad approaches for a kiss."
 		fiona_dialogue[8]["audio"] = audios["nothing"]
 	else:
 		fiona_dialogue[4]["text"] = "You came all this way to save me!"
-		fiona_dialogue[5]["text"] = "Maybe you made some mistakes on the way here, but I still believe in you."
-		fiona_dialogue[6]["text"] = "You just need to work on your anger managment for now. Now, let's beat Farquaad!"
+		fiona_dialogue[5]["text"] = "You made... some mistakes on the way here. Mistakes that I don't know if I can forgive you for."
+		fiona_dialogue[6]["text"] = "But for now, let's stop Farquaad, together. Once and for all!"
 		fiona_dialogue[7]["text"] = "STOP YOU MONSTERS! I AM THE NEW RULER OF THIS KINGDOM! [shake]KNEEL BEFORE ME![/shake]"
-		fiona_dialogue[8]["text"] = "You defeat Farquaad and save Fiona, but she doesn't have feelings for you."
+		fiona_dialogue[8]["text"] = "Farquaad is defeated and you save Fiona, but your relationship now seems fractured."
 		fiona_dialogue[8]["audio"] = audios["nothing"]
 	current_text = fiona_dialogue
 
