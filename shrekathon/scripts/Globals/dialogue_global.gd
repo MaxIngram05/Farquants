@@ -16,7 +16,7 @@ var audios = {
 	"donkey": preload("res://audio/longer_audio/donkey_dialogue_longer.mp3"),
 	"puss": preload("res://audio/longer_audio/puss_dialogue2.mp3"),
 	"rumpel": preload("res://audio/longer_audio/rumpy_dialogue_longer+louder.mp3"),
-	"mirror": preload("res://placeholders/Assets/sounds/talking_synth.ogg"),
+	"mirror": preload("res://audio/longer_audio/mirror_dialogue_v2.mp3"),
 	"fiona": preload("res://audio/longer_audio/fiona_dialogue.mp3"),
 	"farquaad": preload("res://audio/longer_audio/farquaad_dialogue.mp3"),
 	"nothing": null

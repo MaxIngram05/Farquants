@@ -2,11 +2,15 @@ extends Control
 
 const DIALOGUE_SCENE = preload("res://scenes/dialogue_panel.tscn")
 @onready var outcome_image: TextureRect = $CenterContainer/OutcomeImage
+@onready var outcome_image_2: TextureRect = $OutcomeImage2
+
 @onready var dialogue_panel: Node2D = $dialogue_panel
 
 var neutral_ending_image = 0
 var bad_ending_image = preload("res://assets/shrek_bad_ending.png")
 var good_ending_image= preload("res://assets/shrek_good_ending.png")
+var neutral_image_1 = preload("res://assets/shrek_neutral_ending_1.jpg")
+var neutral_image_2 = preload("res://assets/shrek_neutral_ending_2.jpg")
 @onready var ending_label: RichTextLabel = $EndingLabel
 @onready var shrek_sprite: AnimatedSprite2D = $ShrekSprite
 @onready var fiona_sprite: AnimatedSprite2D = $FionaSprite
@@ -17,6 +21,7 @@ var extra_fiona_dialogue
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	UnlockSystem.obtainedJumpExtend = true #REMOVE!
 	button.hide()
 	outcome_image.modulate.a = 0
 	ending_label.visible = false
@@ -49,7 +54,11 @@ func _on_dialogue_finished():
 		ending_label.text = "You got the [color=red]EVIL ENDING[/color]! You were rude to everyone in your path and gained no new powers while jumping. You lost your wife and instead marry the evil Lord Farquaad. Together, you rule the entire world. No one can stop this power couple!"
 		button.text = "You Won? Return to Main Menu"
 	else:
-		ending_label.text = "You got the NEUTRAL ENDING! You were rude to some and nice to others. Fiona seems grateful but unhappy with some of your actions. Perhaps if you were [color=green]nice to everyone[/color], then she'd give you a kiss!"
+		var outcomeTween = create_tween()
+		outcomeTween.tween_property(outcome_image, "modulate:a", 1, 3)
+		var outcomeTween2 = create_tween()
+		outcomeTween2.tween_property(outcome_image_2, "modulate:a", 1, 3)
+		ending_label.text = "You got the NEUTRAL ENDING! You were rude to some and nice to others. Fiona seems grateful but is unhappy with some of your actions. You reach in for a kiss and she walks away. Perhaps if you were [color=green]nice to everyone[/color], then she'd give you a kiss!"
 		button.text = "You Won. Return to Main Menu"
 
 
@@ -59,8 +68,12 @@ func _process(delta: float) -> void:
 		outcome_image.texture = good_ending_image
 	elif UnlockSystem.is_bad_ending():
 		outcome_image.texture = bad_ending_image
-	else:
+	elif UnlockSystem.is_neutral_ending():
+		outcome_image.texture = neutral_image_1
+		outcome_image_2.texture = neutral_image_2
 		outcome_image.texture = null
+	else:
+		print("This should never happen")
 
 
 func _on_button_pressed() -> void:

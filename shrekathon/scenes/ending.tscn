@@ -641,6 +641,13 @@ grow_vertical = 2
 [node name="OutcomeImage" type="TextureRect" parent="CenterContainer" unique_id=1436640884]
 layout_mode = 2
 
+[node name="OutcomeImage2" type="TextureRect" parent="." unique_id=1343711115]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 388.0
+offset_right = 700.0
+offset_bottom = 388.0
+
 [node name="EndingLabel" type="RichTextLabel" parent="." unique_id=1455436220]
 layout_mode = 1
 anchors_preset = 5

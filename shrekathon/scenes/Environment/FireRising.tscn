@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bpsh32b0vduo6"]
+[gd_scene format=3 uid="uid://c33al4jchbimc"]
 
-[ext_resource type="Script" path="res://scripts/environmentFeatures/fire_rising.gd" id="1_aiq4f"]
+[ext_resource type="Script" uid="uid://dqu55t6umppa" path="res://scripts/environmentFeatures/fire_rising.gd" id="1_aiq4f"]
 [ext_resource type="Texture2D" uid="uid://bk6cp64ogiv1r" path="res://assets/Group 6 - 1.png" id="1_jt8ei"]
 [ext_resource type="Texture2D" uid="uid://dmthx7x2s4s4u" path="res://assets/dragon_spritesheet.png" id="3_mi8nd"]
 [ext_resource type="Texture2D" uid="uid://norfugnyhb70" path="res://assets/fix1.png" id="3_uycdh"]
@@ -130,7 +130,7 @@ script = ExtResource("1_aiq4f")
 position = Vector2(-243, -11)
 sprite_frames = SubResource("SpriteFrames_81xde")
 autoplay = "default"
-frame_progress = 0.92134005
+frame_progress = 0.94464296
 
 [node name="DamageArea2D" type="Area2D" parent="." unique_id=120130605]
 
@@ -143,7 +143,7 @@ custom_minimum_size = Vector2(500, 200)
 offset_left = -251.0
 offset_top = 11.0
 offset_right = 249.0
-offset_bottom = 211.0
+offset_bottom = 458.0
 texture = SubResource("AnimatedTexture_6onie")
 stretch_mode = 1
 
