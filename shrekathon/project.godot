@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="shrekathon"
+config/name="JumpSHREK"
 run/main_scene="uid://b2mkoaw7c2ms4"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ba7cccnqdqjuf"
 
 [autoload]
 

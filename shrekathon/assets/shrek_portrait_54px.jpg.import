@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64lromjbjijw"
-path="res://.godot/imported/pussy_thumbnail.png-fffb065cb08bb8398e4bfd8c7b7e5473.ctex"
+uid="uid://ibxibct7pyhi"
+path="res://.godot/imported/shrek_portrait_54px.jpg-ecaac63745f54dcab31d860c42474757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pussy_thumbnail.png"
-dest_files=["res://.godot/imported/pussy_thumbnail.png-fffb065cb08bb8398e4bfd8c7b7e5473.ctex"]
+source_file="res://assets/shrek_portrait_54px.jpg"
+dest_files=["res://.godot/imported/shrek_portrait_54px.jpg-ecaac63745f54dcab31d860c42474757.ctex"]
 
 [params]
 

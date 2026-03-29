@@ -1,7 +1,7 @@
 extends Node
 
 var icons = {
-	"shrek": preload("res://assets/shrek_thumbnail.png"),
+	"shrek": preload("res://assets/shrek_portrait_54px.jpg"),
 	"donkey": preload("res://assets/sad-doney-sad-face2_compressed.png"),
 	"puss": preload("res://assets/puss_dialogue_image_54.png"),
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
