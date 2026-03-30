@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://ca8343b0npusq"]
 
 [ext_resource type="Script" uid="uid://cuvdnqrot3lca" path="res://scripts/ending.gd" id="1_fyrdv"]
+[ext_resource type="Texture2D" uid="uid://gcpehet0n2hi" path="res://assets/shrek_neutral_ending_1_smallest.jpg" id="2_1snb8"]
 [ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="2_e6d8c"]
 [ext_resource type="Texture2D" uid="uid://ce6k3sph4yla5" path="res://placeholders/Assets/sprites/shrek_jump.webp" id="2_t1k4y"]
 [ext_resource type="Texture2D" uid="uid://bsa312qqqfo1x" path="res://placeholders/Assets/sprites/shrek_dash.webp" id="3_3v48n"]
+[ext_resource type="Texture2D" uid="uid://c5oamddteydx" path="res://assets/shrek_neutral_ending_2.jpg" id="3_7g6bj"]
 [ext_resource type="Texture2D" uid="uid://wkh0kdcig7l1" path="res://placeholders/Assets/sprites/shrek_dash_left.png" id="4_75aq2"]
 [ext_resource type="Texture2D" uid="uid://cuer3yvogmxkl" path="res://assets/shrek_idle.png" id="5_o5uye"]
 [ext_resource type="Texture2D" uid="uid://dywpgi0ob5na8" path="res://assets/shrek_walk.png" id="6_e6d8c"]
@@ -640,13 +642,15 @@ grow_vertical = 2
 
 [node name="OutcomeImage" type="TextureRect" parent="CenterContainer" unique_id=1436640884]
 layout_mode = 2
+texture = ExtResource("2_1snb8")
 
 [node name="OutcomeImage2" type="TextureRect" parent="." unique_id=1343711115]
 layout_mode = 0
-offset_left = 700.0
-offset_top = 388.0
-offset_right = 700.0
-offset_bottom = 388.0
+offset_left = 184.0
+offset_top = 305.0
+offset_right = 500.0
+offset_bottom = 562.0
+texture = ExtResource("3_7g6bj")
 
 [node name="EndingLabel" type="RichTextLabel" parent="." unique_id=1455436220]
 layout_mode = 1
@@ -683,13 +687,23 @@ autoplay = "default"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1138171680]
 position = Vector2(638, 478)
 
-[node name="Button" type="Button" parent="." unique_id=1975600602]
-layout_mode = 0
-offset_left = 370.0
-offset_top = 778.0
-offset_right = 870.0
-offset_bottom = 836.0
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=542578883]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -245.5
+offset_top = -160.0
+offset_right = 245.5
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="CenterContainer2" unique_id=1975600602]
+layout_mode = 2
 theme = ExtResource("10_o5uye")
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer2/Button" to="." method="_on_button_pressed"]

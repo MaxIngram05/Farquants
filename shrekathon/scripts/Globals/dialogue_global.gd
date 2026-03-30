@@ -6,8 +6,8 @@ var icons = {
 	"puss": preload("res://assets/puss_dialogue_image_54.png"),
 	"rumpel": preload("res://assets/rumpel_lip_54.jpg"),
 	"mirror": preload("res://assets/mirror_png_icon.png"),
-	"farquaad": preload("res://assets/farquad_thumbnail.png"),
-	"fiona": preload("res://assets/fiona_thumbnail.png"),
+	"farquaad": preload("res://assets/farquaad_icon.png"),
+	"fiona": preload("res://assets/fiona_dialogue_54px.png"),
 	"nothing": null
 }
 
@@ -497,7 +497,7 @@ func prepare_fiona_ending():
 		fiona_dialogue[8]["audio"] = audios["nothing"]
 	else:
 		fiona_dialogue[4]["text"] = "You came all this way to save me!"
-		fiona_dialogue[5]["text"] = "You made... some mistakes on the way here. Mistakes that I don't know if I can forgive you for."
+		fiona_dialogue[5]["text"] = "But on the way, you made... some mistakes. And I don't know if I can forgive you yet for that."
 		fiona_dialogue[6]["text"] = "But for now, let's stop Farquaad, together. Once and for all!"
 		fiona_dialogue[7]["text"] = "STOP YOU MONSTERS! I AM THE NEW RULER OF THIS KINGDOM! [shake]KNEEL BEFORE ME![/shake]"
 		fiona_dialogue[8]["text"] = "Farquaad is defeated and you save Fiona, but your relationship now seems fractured."

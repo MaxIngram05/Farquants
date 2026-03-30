@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy5ir8p27th5h"
-path="res://.godot/imported/shrek_neutral_ending_1.jpg-e0d6b8b7636bd148f86036890f09036e.ctex"
+uid="uid://bw3ijr1kxc0mc"
+path="res://.godot/imported/farquaad_icon.png-d710843f6d6cbcfba46900dd836c604e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrek_neutral_ending_1.jpg"
-dest_files=["res://.godot/imported/shrek_neutral_ending_1.jpg-e0d6b8b7636bd148f86036890f09036e.ctex"]
+source_file="res://assets/farquaad_icon.png"
+dest_files=["res://.godot/imported/farquaad_icon.png-d710843f6d6cbcfba46900dd836c604e.ctex"]
 
 [params]
 
