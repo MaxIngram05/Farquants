@@ -23,6 +23,7 @@ var charge_time := 0.0
 var is_charging := false
 var is_super_charging := false
 var is_talking = false
+var is_dash_animating := false
 var charge_direction := 0.0
 var jump_direction := 0.0
 
@@ -69,6 +70,7 @@ func _ready() -> void:
 	sfx_fart_jump = _create_sfx("res://audio/fart_jump.mp3")
 	sfx_ground_pound = _create_sfx("res://audio/ground_pound.mp3")
 	sfx_enemy_hit = _create_sfx("res://audio/ohhhh.wav")
+	anim.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	#people interaction
@@ -76,6 +78,10 @@ func _physics_process(delta: float) -> void:
 		# Apply gravity
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+			is_charging = false
+			is_super_charging = false
+			charge_time = 0.0
+			charge_direction = 0.0
 
 		dir = 0;
 
@@ -87,7 +93,8 @@ func _physics_process(delta: float) -> void:
 			dir = (float(right) - float(left)) * speed_scale
 			if !is_dashing and !can_horz_dash:
 				can_horz_dash = true
-
+	
+		# Wall colliding
 		if !is_on_floor() and is_jumping:
 			if right_wall.is_colliding() and jump_direction > 0:
 				velocity.x -= WALL_JUMP_VELOCITY_X
@@ -99,10 +106,12 @@ func _physics_process(delta: float) -> void:
 				can_vert_dash = true
 
 		# Charging logic (hold Space)
-		if !is_dashing:
+		if !is_dashing and !is_dash_animating:
 			if Input.is_action_pressed("ui_accept") and is_on_floor():
 				charge_direction = dir
-				velocity.x = 0.0
+				can_horz_dash = false
+				if not is_charging and not is_super_charging:
+					velocity.x = 0.0
 				if charge_time < MAX_CHARGE_TIME:
 					is_charging = true
 					charge_time = min(charge_time + delta, MAX_CHARGE_TIME)
@@ -120,22 +129,22 @@ func _physics_process(delta: float) -> void:
 				velocity.x = charge_direction * SPEED * (1.0 + charge_time / MAX_CHARGE_TIME)
 				is_charging = false
 				is_super_charging = false
+				can_horz_dash = true
 				jump_direction = charge_direction
 				is_jumping = true
 				charge_time = 0.0
 				charge_direction = 0.0
 				sfx_jump.play()
 			elif is_on_floor():
-				# Normal horizontal movement
 				is_jumping = false
 				if dir:
-					velocity.x = dir * SPEED
+					velocity.x = move_toward(velocity.x, dir * SPEED, SPEED * 10 * delta)
 				else:
-					velocity.x = move_toward(velocity.x, charge_direction, SPEED)
+					velocity.x = move_toward(velocity.x, 0.0, SPEED * 50 * delta)
 
 		#ground_pound()
 		horizontal_dash(delta)
-		veritcal_dash(delta)
+		vertical_dash(delta)
 		move_and_slide()
 
 		if is_on_floor() and is_groundpounding:
@@ -147,17 +156,21 @@ func _physics_process(delta: float) -> void:
 		
 		if is_charging or is_groundpounding:
 			anim.play("charging")
+		elif is_dash_animating:
+			pass
 		elif not is_on_floor():
 			# Use "idle" or a specific "jump" frame if you have one
 			anim.play("jumping")
 		elif dir > 0:
 			anim.play("walking_right")
 		elif dir < 0:
-			anim.play("walking_left")
-		elif Input.is_key_pressed(KEY_SHIFT):
-			anim.play("dashing_left")
+			anim.play("walking_left")		
 		else:
 			anim.play("idle")
+
+func _on_animation_finished() -> void:
+	if is_dash_animating:
+		is_dash_animating = false
 
 func horizontal_dash(delta: float) -> void:
 	var input_dir: float = Input.get_axis("left", "right")
@@ -168,21 +181,29 @@ func horizontal_dash(delta: float) -> void:
 		print("horizontal dashing!")
 		can_horz_dash = false
 		is_dashing = true
+		is_dash_animating = true
 		dash_timer = DASH_TIME
 		velocity = horizontal_dash_direction * DASH_AMOUNT
+		if horizontal_dash_direction.x > 0:
+			anim.play("dashing_right")
+		else:
+			anim.play("dashing_left")
 
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0.0:
 			is_dashing = false
 
-func veritcal_dash(delta: float) -> void:
+func vertical_dash(delta: float) -> void:
 	if can_vert_dash and UnlockSystem.obtainedVerticalDash and Input.is_action_just_pressed("jump") and vertical_jumps > 0:
 		print("vertical dashing!")
 		can_vert_dash = false
+		charge_direction = dir
 		vertical_jumps -= 1
 		dash_timer = DASH_TIME
-		velocity = vertical_dash_direction * DASH_AMOUNT
+		var current_dir = Input.get_axis("left", "right")
+		velocity.x = current_dir * DASH_AMOUNT/4
+		velocity.y = -DASH_AMOUNT 
 		sfx_fart_jump.play()
 		print(vertical_jumps)
 	if is_dashing:
