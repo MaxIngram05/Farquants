@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="4_g7f1s"]
 [ext_resource type="Texture2D" uid="uid://cenw0md5l4v1x" path="res://assets/tiles/desert_tilemap (1).png" id="4_lbh5e"]
 [ext_resource type="PackedScene" uid="uid://d1pry0r2qofmv" path="res://scenes/EnemyScence/GingerBreadMan.tscn" id="4_sr4vm"]
-[ext_resource type="PackedScene" path="res://scenes/camera_2d.tscn" id="5_43g38"]
+[ext_resource type="PackedScene" uid="uid://ck8f4utovcjj2" path="res://scenes/camera_2d.tscn" id="5_43g38"]
 [ext_resource type="Texture2D" uid="uid://ch4jhp3cus5b" path="res://assets/tiles/french_onion_tilemap.png" id="5_wx8f7"]
 [ext_resource type="Texture2D" uid="uid://uxdq0cd52y4e" path="res://assets/tiles/green_onion_tilemap.png" id="6_1a35t"]
-[ext_resource type="PackedScene" uid="uid://deyg7cr3srxpy" path="res://scenes/Environment/SlowArea.tscn" id="6_mnm7h"]
-[ext_resource type="PackedScene" path="res://scenes/EnemyScence/mosquito.tscn" id="12_lbh5e"]
+[ext_resource type="PackedScene" uid="uid://dd2jxn0yncpy6" path="res://scenes/Environment/SlowArea.tscn" id="6_mnm7h"]
+[ext_resource type="PackedScene" uid="uid://b5ahubb2qb2uo" path="res://scenes/EnemyScence/mosquito.tscn" id="12_lbh5e"]
 [ext_resource type="PackedScene" uid="uid://3v4hhy1snfcr" path="res://scenes/Environment/BloomingOnion.tscn" id="13_wx8f7"]
 [ext_resource type="PackedScene" uid="uid://dkjf84oq0a23l" path="res://scenes/sign.tscn" id="14_1a35t"]
 [ext_resource type="PackedScene" uid="uid://c33al4jchbimc" path="res://scenes/Environment/FireRising.tscn" id="14_xgyb2"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c47warooiqwtc" path="res://scenes/NPCs/Rumpelstilskin.tscn" id="17_d7lnh"]
 [ext_resource type="AudioStream" uid="uid://bowxt2w71depx" path="res://audio/music/raw/lvl_themes3.mp3" id="18_bybik"]
 [ext_resource type="AudioStream" uid="uid://bteqc7xhsxadr" path="res://audio/music/raw/bossfight 2nd file.ogg" id="19_xgyb2"]
-[ext_resource type="Script" path="res://scenes/endingloader.gd" id="21_pqykj"]
+[ext_resource type="Script" uid="uid://bieoooqe3ve6d" path="res://scenes/endingloader.gd" id="21_pqykj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_sr4vm")
@@ -344,7 +344,7 @@ position = Vector2(-169, -1799)
 
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("4_g7f1s")]
 z_index = 67
-position = Vector2(-278, 268)
+position = Vector2(-271, 270)
 
 [node name="Camera2D" parent="Shrek(player)" unique_id=1938074516 instance=ExtResource("5_43g38")]
 position = Vector2(1, -4)

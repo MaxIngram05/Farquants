@@ -318,7 +318,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dashing_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 0.35,
@@ -344,7 +344,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dashing_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 0.9,

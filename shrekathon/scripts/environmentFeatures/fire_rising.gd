@@ -47,8 +47,9 @@ func _process(delta: float) -> void:
 
 func _on_trigger_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Shrek(player)":
-		music_player.stop()
-		boss_player.play()
+		if !boss_player.playing:
+			music_player.stop()
+			boss_player.play()
 		start_fire()
 		$TriggerArea2D/CollisionShape2D.set_deferred("disabled", true)
 		print("start fire")
