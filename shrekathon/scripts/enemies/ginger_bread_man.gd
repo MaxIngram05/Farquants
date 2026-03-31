@@ -48,9 +48,9 @@ func update_direction_based_on_screen_position() -> void:
 	else:
 		current_direction = -1  # Move left
 
-func get_distance():
+func get_rand_distance():
 	# Random distance in [0, movement_speed], then apply direction.
-	return 10 * current_direction
+	return randf_range(0.0, movement_speed) * current_direction
 
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Shrek(player)":
