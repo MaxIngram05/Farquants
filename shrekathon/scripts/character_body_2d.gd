@@ -9,6 +9,7 @@ var sfx_jump: AudioStreamPlayer
 var sfx_fart_jump: AudioStreamPlayer
 var sfx_ground_pound: AudioStreamPlayer
 var sfx_enemy_hit: AudioStreamPlayer
+var sfx_dash: AudioStreamPlayer
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
@@ -71,6 +72,7 @@ func _ready() -> void:
 	sfx_fart_jump = _create_sfx("res://audio/fart_jump.mp3")
 	sfx_ground_pound = _create_sfx("res://audio/ground_pound.mp3")
 	sfx_enemy_hit = _create_sfx("res://audio/ohhhh.wav")
+	sfx_dash = _create_sfx("res://audio/donkey_waffles.mp3")
 	anim.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
@@ -186,6 +188,7 @@ func horizontal_dash(delta: float) -> void:
 		horizontal_dash_direction.x = input_dir
 	if can_horz_dash and UnlockSystem.obtainedHorizontalDash and Input.is_action_just_pressed("horizontal_dash"):
 		print("horizontal dashing!")
+		sfx_dash.play()
 		can_horz_dash = false
 		is_dashing = true
 		is_dash_animating = true
