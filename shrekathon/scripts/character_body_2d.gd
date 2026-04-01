@@ -24,6 +24,7 @@ var is_charging := false
 var is_super_charging := false
 var is_talking = false
 var is_dash_animating := false
+var was_in_air := false
 var charge_direction := 0.0
 var jump_direction := 0.0
 
@@ -75,6 +76,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#people interaction
 	if UnlockSystem.can_move:
+		var on_floor_before = is_on_floor()
+		
 		# Apply gravity
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -139,13 +142,17 @@ func _physics_process(delta: float) -> void:
 				is_jumping = false
 				if dir:
 					velocity.x = move_toward(velocity.x, dir * SPEED, SPEED * 10 * delta)
+				elif was_in_air:
+					velocity.x = 0.0	
 				else:
-					velocity.x = move_toward(velocity.x, 0.0, SPEED * 50 * delta)
+					velocity.x = move_toward(velocity.x, 0.0, SPEED * 20 * delta)
 
 		#ground_pound()
 		horizontal_dash(delta)
 		vertical_dash(delta)
 		move_and_slide()
+		
+		was_in_air = not on_floor_before and is_on_floor()
 
 		if is_on_floor() and is_groundpounding:
 			is_groundpounding = false

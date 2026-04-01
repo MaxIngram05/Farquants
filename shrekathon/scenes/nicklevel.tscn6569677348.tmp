@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://cbggl6820xwc3" path="res://scenes/NPCs/PussInBoots.tscn" id="16_d7lnh"]
 [ext_resource type="PackedScene" uid="uid://c47warooiqwtc" path="res://scenes/NPCs/Rumpelstilskin.tscn" id="17_d7lnh"]
 [ext_resource type="AudioStream" uid="uid://o5sb4jsx8ch7" path="res://audio/music/raw/lvl1 2nd file.ogg" id="19_5dup5"]
-[ext_resource type="Script" uid="uid://co6ftm46bco80" path="res://scripts/music_manager.gd" id="19_i2pmt"]
 [ext_resource type="AudioStream" uid="uid://bteqc7xhsxadr" path="res://audio/music/raw/bossfight 2nd file.ogg" id="19_xgyb2"]
 [ext_resource type="AudioStream" uid="uid://bo30ohh2aqsww" path="res://audio/music/raw/lvl2 can just loop this.ogg" id="20_i2pmt"]
 [ext_resource type="AudioStream" uid="uid://b574at2vef3j7" path="res://audio/music/raw/lvl3 2nd file.ogg" id="21_bqb4b"]
@@ -277,9 +276,7 @@ sources/2 = SubResource("TileSetAtlasSource_1eewf")
 sources/3 = SubResource("TileSetAtlasSource_d7lnh")
 sources/4 = SubResource("TileSetAtlasSource_ymajj")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2pmt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqb4b"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pqykj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr5j1"]
 
@@ -314,23 +311,20 @@ tile_set = SubResource("TileSet_3dryh")
 [node name="ThemeChanger1" parent="ThemeChanger" unique_id=488587044 instance=ExtResource("3_1mwru")]
 position = Vector2(-258, -643)
 scale = Vector2(1, 0.92)
-collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThemeChanger/ThemeChanger1" unique_id=57925224]
 position = Vector2(27.358948, 0)
 scale = Vector2(183.19911, -0.5107659)
-shape = SubResource("RectangleShape2D_i2pmt")
+shape = SubResource("SegmentShape2D_pqykj")
 
 [node name="ThemeChanger2" parent="ThemeChanger" unique_id=848187461 instance=ExtResource("3_1mwru")]
 position = Vector2(-242, -1967)
 scale = Vector2(1, 0.92)
-collision_mask = 1
-layer_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThemeChanger/ThemeChanger2" unique_id=971983123]
 position = Vector2(27.358948, 0)
 scale = Vector2(183.19911, -0.5107659)
-shape = SubResource("RectangleShape2D_bqb4b")
+shape = SubResource("SegmentShape2D_pqykj")
 
 [node name="enemies" type="Node" parent="." unique_id=682195105]
 
@@ -443,27 +437,19 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(-180, -3257)
 scale = Vector2(0.4, 0.4)
 
-[node name="MusicManager" type="Node" parent="." unique_id=543691168]
-script = ExtResource("19_i2pmt")
-
-[node name="LevelMusicPlayer1" type="AudioStreamPlayer" parent="MusicManager" unique_id=479278877]
+[node name="LevelMusicPlayer1" type="AudioStreamPlayer" parent="." unique_id=479278877]
 stream = ExtResource("19_5dup5")
 autoplay = true
-parameters/looping = true
 
-[node name="LevelMusicPlayer2" type="AudioStreamPlayer" parent="MusicManager" unique_id=887314191]
+[node name="LevelMusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=887314191]
 stream = ExtResource("20_i2pmt")
-volume_db = -80.0
 autoplay = true
-parameters/looping = true
 
-[node name="LevelMusicPlayer3" type="AudioStreamPlayer" parent="MusicManager" unique_id=488729117]
+[node name="LevelMusicPlayer3" type="AudioStreamPlayer" parent="." unique_id=488729117]
 stream = ExtResource("21_bqb4b")
-volume_db = -80.0
 autoplay = true
-parameters/looping = true
 
-[node name="BossMusicPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=706822188]
+[node name="BossMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=706822188]
 stream = ExtResource("19_xgyb2")
 
 [node name="EndingTrigger" type="Area2D" parent="." unique_id=1056143226]
