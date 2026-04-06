@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://cc5ftcf7r0jcj"]
 
+[ext_resource type="Script" uid="uid://86esh6eguoaj" path="res://scripts/speedrun_timer.gd" id="1_bqb4b"]
 [ext_resource type="Script" uid="uid://bd07x6ov53h5p" path="res://placeholders/Scripts/game_manager.gd" id="1_mnm7h"]
 [ext_resource type="Texture2D" uid="uid://bietq3lprrvcv" path="res://placeholders/Assets/sprites/world_tileset.png" id="2_sr4vm"]
+[ext_resource type="FontFile" uid="uid://bq04tk2r4hajk" path="res://fonts/MedievalSharp-Regular.ttf" id="2_uesxw"]
 [ext_resource type="PackedScene" uid="uid://bm3x8y2k74twl" path="res://placeholders/Scenes/killzone.tscn" id="3_1mwru"]
 [ext_resource type="Texture2D" uid="uid://lae0kwl6b3bg" path="res://assets/tiles/castle_tileset.png" id="3_n5nh8"]
 [ext_resource type="PackedScene" uid="uid://4pvhckn505h4" path="res://scenes/shrek(player).tscn" id="4_g7f1s"]
@@ -24,6 +26,11 @@
 [ext_resource type="AudioStream" uid="uid://bo30ohh2aqsww" path="res://audio/music/raw/lvl2 can just loop this.ogg" id="20_i2pmt"]
 [ext_resource type="AudioStream" uid="uid://b574at2vef3j7" path="res://audio/music/raw/lvl3 2nd file.ogg" id="21_bqb4b"]
 [ext_resource type="Script" uid="uid://bieoooqe3ve6d" path="res://scenes/endingloader.gd" id="21_pqykj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uesxw"]
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_sr4vm")
@@ -285,6 +292,33 @@ sources/4 = SubResource("TileSetAtlasSource_ymajj")
 
 [node name="Game" type="Node2D" unique_id=1529407734]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=573313387]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=763962527]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("1_bqb4b")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1437039688]
+z_index = 177
+layout_mode = 0
+offset_left = 9.0
+offset_top = -66.00001
+offset_right = 51.0
+offset_bottom = -43.000008
+scale = Vector2(3.6209395, 4.048102)
+theme_override_fonts/font = ExtResource("2_uesxw")
+text = "00:00"
+label_settings = SubResource("LabelSettings_uesxw")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control" unique_id=1336465298]
+autostart = true
+
 [node name="GameManager" type="Node" parent="." unique_id=445380449]
 unique_name_in_owner = true
 script = ExtResource("1_mnm7h")
@@ -366,7 +400,7 @@ position = Vector2(-169, -1799)
 
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("4_g7f1s")]
 z_index = 67
-position = Vector2(-263, -670)
+position = Vector2(-277, 267)
 
 [node name="Camera2D" parent="Shrek(player)" unique_id=1938074516 instance=ExtResource("5_43g38")]
 position = Vector2(1, -4)
@@ -473,3 +507,5 @@ script = ExtResource("21_pqykj")
 position = Vector2(-154, -6421)
 scale = Vector2(9.599998, 1)
 shape = SubResource("RectangleShape2D_nr5j1")
+
+[connection signal="timeout" from="CanvasLayer/Control/Timer" to="CanvasLayer/Control" method="on_timer_timeout"]

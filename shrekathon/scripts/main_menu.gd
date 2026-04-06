@@ -2,11 +2,17 @@ extends Control
 @onready var credits_button: Button = $CenterContainer/VBoxContainer/CreditsButton
 @onready var max_sfx_player: AudioStreamPlayer = $MaxSFXPlayer
 @onready var v_box_container: VBoxContainer = $CenterContainer/VBoxContainer
+@onready var best_time_label: RichTextLabel = $BestTimeLabel
 
 
 func _ready() -> void:
 	credits_button.layout_mode = 2
+	var total_time= BestTime.best_time
+	var m = int(total_time / 60.0)
+	var s = total_time - m * 60
+	best_time_label.text = 'Best Time: %02d:%02d' % [m, s]
 	v_box_container.hide()
+	
 
 
 func _process(delta: float) -> void:

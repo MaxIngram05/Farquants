@@ -165,6 +165,19 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BestTimeLabel" type="RichTextLabel" parent="." unique_id=1496328395]
+layout_mode = 0
+offset_left = 929.0
+offset_top = 894.0
+offset_right = 1263.0
+offset_bottom = 940.0
+theme_override_fonts/normal_font = ExtResource("4_ow34m")
+theme_override_font_sizes/normal_font_size = 34
+text = "Best Time: None"
+scroll_active = false
+tab_size = 7
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=769848229]
 root_node = NodePath("../MaxButton/MaxPlaceholder")
 libraries/ = SubResource("AnimationLibrary_l72w3")

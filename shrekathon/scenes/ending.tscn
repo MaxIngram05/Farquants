@@ -668,6 +668,19 @@ text = "ENDING SHOULD SHOW HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TimeLabel" type="RichTextLabel" parent="." unique_id=1304322636]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 175.0
+offset_right = 841.0
+offset_bottom = 221.0
+theme_override_fonts/normal_font = ExtResource("2_e6d8c")
+theme_override_font_sizes/normal_font_size = 34
+text = "Time: 00:00"
+scroll_active = false
+tab_size = 7
+vertical_alignment = 1
+
 [node name="ShrekSprite" type="AnimatedSprite2D" parent="." unique_id=1826689857]
 position = Vector2(529, 497)
 sprite_frames = SubResource("SpriteFrames_1snb8")

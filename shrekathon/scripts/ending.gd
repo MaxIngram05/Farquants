@@ -16,6 +16,7 @@ var neutral_image_2 = preload("res://assets/shrek_neutral_ending_2.jpg")
 @onready var fiona_sprite: AnimatedSprite2D = $FionaSprite
 @onready var farquaad_sprite: AnimatedSprite2D = $FarquaadSprite
 @onready var button: Button = $CenterContainer2/Button
+@onready var time_label: RichTextLabel = $TimeLabel
 
 var extra_fiona_dialogue
 
@@ -25,6 +26,12 @@ func _ready() -> void:
 	outcome_image.modulate.a = 0
 	outcome_image_2.modulate.a = 0
 	ending_label.visible = false
+	time_label.visible = false
+	
+	var total_time_in_secs = BestTime.current_time
+	var m = int(total_time_in_secs / 60.0)
+	var s = total_time_in_secs - m * 60
+	time_label.text = 'Time: %02d:%02d' % [m, s]
 
 	DialogueGlobal.prepare_fiona_ending()
 	
@@ -43,6 +50,7 @@ func _on_dialogue_finished():
 	fiona_sprite.visible = false
 	farquaad_sprite.visible = false 
 	ending_label.visible = true
+	time_label.visible = true
 	if UnlockSystem.is_good_ending():
 		var outcomeTween = create_tween()
 		outcomeTween.tween_property(outcome_image, "modulate:a", 1, 3)
