@@ -1,6 +1,7 @@
 extends Node
 
-var resultList: Array[bool] = [false, false, false]
+var resultList: Array[int] = [false, false, false]
+var badCount = 0
 
 var isEndingMenu = false
 
@@ -8,18 +9,24 @@ var obtainedHorizontalDash: bool:
 	get:
 		return resultList[0]
 	set(value):
+		if value == false:
+			badCount += 1
 		resultList[0] = value
 
 var obtainedVerticalDash: bool:
 	get:
 		return resultList[1]
 	set(value):
+		if value == false:
+			badCount += 1
 		resultList[1] = value
 
 var obtainedJumpExtend: bool:
 	get:
 		return resultList[2]
 	set(value):
+		if value == false:
+			badCount += 1
 		resultList[2] = value
 
 
@@ -46,7 +53,10 @@ func is_bad_ending() -> bool:
 	for value in resultList:
 		if value:
 			return false
-	return true
+	if badCount >= 3:		
+		return true
+	else:
+		return false
 
 #for neither
 func is_neutral_ending() -> bool:

@@ -366,7 +366,7 @@ position = Vector2(-169, -1799)
 
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("4_g7f1s")]
 z_index = 67
-position = Vector2(-271, 270)
+position = Vector2(-263, -670)
 
 [node name="Camera2D" parent="Shrek(player)" unique_id=1938074516 instance=ExtResource("5_43g38")]
 position = Vector2(1, -4)

@@ -76,8 +76,10 @@ func apply_karma_reward(karma_amount: int) -> void:
 
 # Event callbacks - override these in child classes for custom behavior
 func on_choice_1_selected() -> void:
+	print("Choice 2 selected")
 	pass
 
 
 func on_choice_2_selected() -> void:
+	print("Choice 1 selected")
 	pass
