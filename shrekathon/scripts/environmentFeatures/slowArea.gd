@@ -1,7 +1,8 @@
 extends Area2D
 
 const PLAYER_SPEED = 150.0  # Match the player's SPEED constant
-@export var speed_multiplier: float = 0.2  # 0.2 = 20% of max speed
+@export var speed_multiplier: float = 0.6  # 0.6 = 60% of max speed
+@export var jump_multiplier: float = 0.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,7 @@ func _on_body_exited(body: Node2D) -> void:
 		# Reset speed_scale when leaving the slow area
 		if body.name == "Shrek(player)":
 			body.speed_scale = 1.0
+			body.jump_scale = 1.0
 		print(body.name + " escaped the sludge!")
 
 func _physics_process(_delta: float) -> void:
@@ -35,3 +37,5 @@ func _physics_process(_delta: float) -> void:
 		if body.name == "Shrek(player)":
 			# Scale down the player's movement by the speed_multiplier
 			body.speed_scale = speed_multiplier	
+			body.jump_scale = jump_multiplier
+			

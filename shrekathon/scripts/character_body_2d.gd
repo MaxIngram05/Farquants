@@ -57,6 +57,7 @@ var is_groundpounding: bool = false
 #end of groundpound variables
 
 @export var speed_scale: float = 1.0 # Multiplier for movement (1.0 = normal, 0.2 = 20% speed)
+@export var jump_scale: float = 1.0 # Multiplier for jumping
 @export var dir = 0;
 
 @onready var right_wall: RayCast2D = $RightWall
@@ -131,10 +132,10 @@ func _physics_process(delta: float) -> void:
 				# Release: launch with charged or super jump
 				var base_velocity = JUMP_VELOCITY * CHARGE_JUMP_MULTIPLIER
 				if is_super_charging:
-					velocity.y = base_velocity * SUPER_JUMP_MULTIPLIER
+					velocity.y = base_velocity * speed_scale * SUPER_JUMP_MULTIPLIER
 				else:
 					var charge_ratio = charge_time / MAX_CHARGE_TIME
-					velocity.y = JUMP_VELOCITY * (1.0 + charge_ratio * (CHARGE_JUMP_MULTIPLIER - 1.0))
+					velocity.y = JUMP_VELOCITY * speed_scale * (1.0 + charge_ratio * (CHARGE_JUMP_MULTIPLIER - 1.0))
 				velocity.x = charge_direction * SPEED * (1.0 + charge_time / MAX_CHARGE_TIME)
 				is_charging = false
 				is_super_charging = false
