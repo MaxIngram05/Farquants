@@ -284,24 +284,28 @@ func _input(event: InputEvent) -> void:
 			print("Interacting with mirror!")
 			DialogueGlobal.prepare_mirror_dialogue()
 			UnlockSystem.can_move = false
+			anim.play("idle")
 			trigger_mirror_dialogue()
 		if target_donkey != null and !donkey_interacted:
 			print("Donkey time!")
 			DialogueGlobal.prepare_donkey_dialogue()
 			UnlockSystem.can_move = false
 			donkey_interacted = true
+			anim.play("idle")
 			trigger_donkey_dialogue()
 		if target_cat != null and !puss_interacted:
 			print("Puss time!")
 			DialogueGlobal.prepare_puss_dialogue()
 			UnlockSystem.can_move = false
 			puss_interacted = true
+			anim.play("idle")
 			trigger_puss_dialogue()
 		if target_rumpel != null and !rumpel_interacted:
 			print("Rumpel Time!")
 			DialogueGlobal.prepare_rumpel_dialogue()
 			UnlockSystem.can_move = false
 			rumpel_interacted = true
+			anim.play("idle")
 			trigger_rumpel_dialogue()
 
 func trigger_mirror_dialogue():

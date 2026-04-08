@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bv4gw5w7rfmpe" path="res://assets/swampbg.png" id="30_fef8j"]
 [ext_resource type="Texture2D" uid="uid://b2grdnkbhjsx2" path="res://assets/forestbg.png" id="31_7g3jm"]
 [ext_resource type="Texture2D" uid="uid://dtr30io1k6f6u" path="res://assets/desertbg.png" id="32_rv6tu"]
+[ext_resource type="Texture2D" uid="uid://b7tqnssitobq5" path="res://assets/castlebg.png" id="33_rv6tu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uesxw"]
 outline_size = 9
@@ -373,7 +374,7 @@ shape = SubResource("RectangleShape2D_bqb4b")
 
 [node name="Shrek(player)" parent="." unique_id=199883520 instance=ExtResource("4_g7f1s")]
 z_index = 67
-position = Vector2(-269, 246)
+position = Vector2(-275, 250)
 
 [node name="Camera2D" parent="Shrek(player)" unique_id=1938074516 instance=ExtResource("5_43g38")]
 position = Vector2(1, -4)
@@ -685,24 +686,38 @@ texture = ExtResource("29_i3eyy")
 [node name="Background" type="Node" parent="." unique_id=867930926]
 
 [node name="Swampbg" type="Sprite2D" parent="Background" unique_id=2130077925]
-modulate = Color(0.66267854, 0.66267854, 0.66267854, 1)
+modulate = Color(0.75064164, 0.75064164, 0.75064164, 1)
 z_index = -100
-position = Vector2(-215, -161.27496)
-scale = Vector2(0.175, 0.2972274)
+position = Vector2(-78, -181)
+scale = Vector2(0.29, 0.29)
 texture = ExtResource("30_fef8j")
 
 [node name="Forestbg" type="Sprite2D" parent="Background" unique_id=555840710]
-modulate = Color(0.56028485, 0.56028485, 0.56028485, 1)
+modulate = Color(0.6361945, 0.6361945, 0.6361945, 1)
 z_index = -100
-position = Vector2(-213.99997, -1310)
-scale = Vector2(0.1697446, 0.41283548)
+position = Vector2(59.000008, -1369.0001)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("31_7g3jm")
 
 [node name="Desertbg" type="Sprite2D" parent="Background" unique_id=377189392]
-modulate = Color(0.58437884, 0.58437884, 0.58437884, 1)
+modulate = Color(0.6355635, 0.6355635, 0.6355635, 1)
 z_index = -100
-position = Vector2(-215.5, -2613.5)
-scale = Vector2(0.18262336, 0.40557873)
+position = Vector2(-119, -2700)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("32_rv6tu")
+
+[node name="Castlebg" type="Sprite2D" parent="Background" unique_id=1010927531]
+modulate = Color(0.6122515, 0.6122515, 0.6122515, 1)
+z_index = -100
+position = Vector2(-197, -4001)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("33_rv6tu")
+
+[node name="Castlebg2" type="Sprite2D" parent="Background" unique_id=1163362260]
+modulate = Color(0.6657409, 0.6657409, 0.6657409, 1)
+z_index = -100
+position = Vector2(-199, -5618)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("33_rv6tu")
 
 [connection signal="timeout" from="CanvasLayer/Control/Timer" to="CanvasLayer/Control" method="on_timer_timeout"]
