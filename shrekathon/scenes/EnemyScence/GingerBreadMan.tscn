@@ -47,6 +47,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7wasw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ye8")
 }],
 "loop": true,
 "name": &"default",
@@ -67,7 +70,8 @@ script = ExtResource("1_u4fao")
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_buw0v")
 autoplay = "default"
-frame_progress = 0.14854936
+frame = 4
+frame_progress = 0.24879515
 
 [node name="BodyArea2D" type="Area2D" parent="." unique_id=785636822]
 

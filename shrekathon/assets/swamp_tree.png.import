@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44qpdcy0hui2"
-path="res://.godot/imported/mirror_png_icon.png-07ed536ac80723e37961ef3c15db1688.ctex"
+uid="uid://dsc622buplw6n"
+path="res://.godot/imported/swamp_tree.png-d87e01f902d5887aa2fd3df44d4b7b82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mirror_png_icon.png"
-dest_files=["res://.godot/imported/mirror_png_icon.png-07ed536ac80723e37961ef3c15db1688.ctex"]
+source_file="res://assets/swamp_tree.png"
+dest_files=["res://.godot/imported/swamp_tree.png-d87e01f902d5887aa2fd3df44d4b7b82.ctex"]
 
 [params]
 

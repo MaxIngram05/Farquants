@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dt8adsomt3p43"]
+
+[ext_resource type="Texture2D" uid="uid://cgd7pf7kcujej" path="res://assets/cheesebread_waterlilly_platform.png" id="1_ba0x2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nlgqw"]
+distance = 74.0
+
+[node name="Area2D" type="Area2D" unique_id=1596576914]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1889806608]
+position = Vector2(3, 13.75)
+scale = Vector2(1, 0.24857143)
+texture = ExtResource("1_ba0x2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=514774424]
+position = Vector2(0, 80)
+scale = Vector2(1.9152032, 1)
+shape = SubResource("WorldBoundaryShape2D_nlgqw")
+one_way_collision = true
+one_way_collision_margin = 0.0

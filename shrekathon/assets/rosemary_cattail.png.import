@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44qpdcy0hui2"
-path="res://.godot/imported/mirror_png_icon.png-07ed536ac80723e37961ef3c15db1688.ctex"
+uid="uid://b5vyc6idibxc5"
+path="res://.godot/imported/rosemary_cattail.png-e77ad731ce049596d1ac6b0ad8612058.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mirror_png_icon.png"
-dest_files=["res://.godot/imported/mirror_png_icon.png-07ed536ac80723e37961ef3c15db1688.ctex"]
+source_file="res://assets/rosemary_cattail.png"
+dest_files=["res://.godot/imported/rosemary_cattail.png-e77ad731ce049596d1ac6b0ad8612058.ctex"]
 
 [params]
 

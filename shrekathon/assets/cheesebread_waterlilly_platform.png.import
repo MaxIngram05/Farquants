@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44qpdcy0hui2"
-path="res://.godot/imported/mirror_png_icon.png-07ed536ac80723e37961ef3c15db1688.ctex"
+uid="uid://cgd7pf7kcujej"
+path="res://.godot/imported/cheesebread_waterlilly_platform.png-587a5f81721c1289237ba50ff20301e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mirror_png_icon.png"
-dest_files=["res://.godot/imported/mirror_png_icon.png-07ed536ac80723e37961ef3c15db1688.ctex"]
+source_file="res://assets/cheesebread_waterlilly_platform.png"
+dest_files=["res://.godot/imported/cheesebread_waterlilly_platform.png-587a5f81721c1289237ba50ff20301e9.ctex"]
 
 [params]
 
