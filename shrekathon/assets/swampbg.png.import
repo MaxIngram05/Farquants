@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cupr6wty4hud1"
-path="res://.godot/imported/rosemary_cattail.webp-2d939e794baa1f83cd2169b39d388792.ctex"
+uid="uid://bv4gw5w7rfmpe"
+path="res://.godot/imported/swampbg.png-148b335a16bf646e3792c1c9d278e62e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rosemary_cattail.webp"
-dest_files=["res://.godot/imported/rosemary_cattail.webp-2d939e794baa1f83cd2169b39d388792.ctex"]
+source_file="res://assets/swampbg.png"
+dest_files=["res://.godot/imported/swampbg.png-148b335a16bf646e3792c1c9d278e62e.ctex"]
 
 [params]
 
