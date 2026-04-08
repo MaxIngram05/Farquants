@@ -33,7 +33,7 @@ func _ready() -> void:
 	_add_spacer(vbox, 32)
 	_add_label(vbox, "Artists", font, 28, true)
 	_add_spacer(vbox, 8)
-	for name in ["Tess Leblanc", "Adriana Smith", "Simon Ménard"]:
+	for name in ["Tess Leblanc", "Adriana Smith", "Simon Ménard", "Nicolas Boyer"]:
 		_add_label(vbox, name, font, 22, false)
 
 	_add_spacer(vbox, 32)
