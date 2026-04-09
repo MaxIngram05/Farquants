@@ -518,22 +518,26 @@ script = ExtResource("19_i2pmt")
 [node name="LevelMusicPlayer1" type="AudioStreamPlayer" parent="MusicManager" unique_id=479278877]
 stream = ExtResource("19_5dup5")
 autoplay = true
+playback_type = 1
 parameters/looping = true
 
 [node name="LevelMusicPlayer2" type="AudioStreamPlayer" parent="MusicManager" unique_id=887314191]
 stream = ExtResource("20_i2pmt")
 volume_db = -80.0
 autoplay = true
+playback_type = 1
 parameters/looping = true
 
 [node name="LevelMusicPlayer3" type="AudioStreamPlayer" parent="MusicManager" unique_id=488729117]
 stream = ExtResource("21_bqb4b")
 volume_db = -80.0
 autoplay = true
+playback_type = 1
 parameters/looping = true
 
 [node name="BossMusicPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=706822188]
 stream = ExtResource("19_xgyb2")
+playback_type = 1
 
 [node name="EndingTrigger" type="Area2D" parent="." unique_id=1056143226]
 position = Vector2(-72, -1)
