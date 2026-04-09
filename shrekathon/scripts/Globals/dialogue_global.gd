@@ -524,6 +524,7 @@ func shrek_yes_donkey():
 
 func shrek_no_donkey():
 	current_text = donkey_dialogue_no
+	UnlockSystem.obtainedHorizontalDash = false
 
 func prepare_puss_dialogue():
 	is_puss_talking = true
@@ -535,6 +536,7 @@ func shrek_yes_puss():
 
 func shrek_no_puss():
 	current_text = puss_dialogue_no
+	UnlockSystem.obtainedVerticalDash = false
 
 func prepare_rumpel_dialogue():
 	is_rumpel_talking = true
@@ -546,3 +548,4 @@ func shrek_yes_rumpel():
 
 func shrek_no_rumpel():
 	current_text = rumpel_dialogue_no
+	UnlockSystem.obtainedJumpExtend = false
